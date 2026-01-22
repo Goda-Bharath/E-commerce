@@ -13,7 +13,7 @@ import ColorSelector from "./components/data1";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <Header/>
       <Routes>
         <Route path="/" element={<Allproducts />} />
         <Route path="/men-dress" element={<Men />} />
