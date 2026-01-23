@@ -9,11 +9,13 @@ import Bueaty from "./components/Bueaty";
 import Contact from "./components/Contact";
 import ProductDetails from "./components/product-details";
 import ColorSelector from "./components/data1";
+import Carousel from "./components/coursel";
 
 function App() {
   return (
     <BrowserRouter>
       <Header/>
+      <Carousel/>
       <Routes>
         <Route path="/" element={<Allproducts />} />
         <Route path="/men-dress" element={<Men />} />
