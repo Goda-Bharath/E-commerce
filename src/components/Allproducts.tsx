@@ -312,23 +312,23 @@ function Allproducts() {
   const [category, setCategory] = useState("All");
   const [sortOrder, setSortOrder] = useState("default");
 
-  // Handle category change
+  
   const handleCategoryChange = (e: any) => {
     setCategory(e.target.value);
   };
 
-  // Handle sorting change
+ 
   const handleSortChange = (e: any) => {
     setSortOrder(e.target.value);
   };
 
-  // Filter products
+ 
   let filteredProducts =
     category === "All"
       ? [...products]
       : products.filter((p) => p.category === category);
 
-  // Sort products
+ 
   if (sortOrder === "low-high") {
     filteredProducts.sort((a, b) => a.price - b.price);
   } else if (sortOrder === "high-low") {
@@ -338,21 +338,13 @@ function Allproducts() {
   return (
     <div className="bg-white min-h-screen">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">
             All Shoping Products
           </h2>
-          {/* Search */}
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="border rounded px-4 py-2 w-full md:w-72"
-
-          />
         </div>
 
-        {/* Filters & Sorting */}
+   
         <div className="flex flex-wrap gap-4 mb-6">
           <select className="border rounded px-4 py-2">
             <option value="Q1">Q1</option>
@@ -372,26 +364,24 @@ function Allproducts() {
           </select>
         </div>
 
-        {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <div
               key={product.id}
               className="group relative border rounded-xl shadow-md hover:shadow-lg transition p-4"
             >
-              {/* Wrap only image + details in Link */}
               <Link
                 to={`/product-details?id=${product.id}`}
                 className="block"
               >
-                {/* Product Image */}
+              
                 <img
                   alt={product.imageAlt}
                   src={product.imageSrc}
                   className="aspect-square w-full rounded-md object-cover group-hover:opacity-90 lg:h-64"
                 />
 
-                {/* Info */}
+            
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">
@@ -411,7 +401,7 @@ function Allproducts() {
                 </div>
               </Link>
 
-              {/* Add to Bag Button */}
+         
               <button
                 onClick={() => console.log("Added to Bag:", product.name)}
                 className="mt-4 w-full bg-yellow-400 transition-all duration-300 animate-pulse rounded hover:bg-yellow-500 rounded-lg py-2 font-medium"

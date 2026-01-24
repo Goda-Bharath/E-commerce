@@ -24,14 +24,14 @@ const Carousel: React.FC = () => {
     setCurrent(index);
   };
 
-  // AUTOPLAY: move to next slide every 3 seconds
+
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 1600);
 
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [current]); // depends on current
+    return () => clearInterval(interval); 
+  }, [current]); 
   return (
     <div
       className="relative w-full bg-cover object-cover bg-center"
@@ -40,7 +40,7 @@ const Carousel: React.FC = () => {
           "url('https://m.media-amazon.com/images/G/31/img21/janart26/A/_JanART_25Hidden-Slot_Stripe_ACQ_pc_1.jpg')",
       }}
     >
-      {/* Carousel wrapper */}
+      
       <div className="relative h-40 overflow-hidden md:h-80 ">
         {images.map((img, index) => (
           <div

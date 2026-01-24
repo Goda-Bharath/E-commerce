@@ -11,6 +11,7 @@ import ProductDetails from "./components/product-details";
 import ColorSelector from "./components/data1";
 import Carousel from "./components/coursel";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<ColorSelector/>}></Route>
       </Routes>
       <Footer />
+     
       <Contact />
     </BrowserRouter>
   );
