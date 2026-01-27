@@ -109,16 +109,17 @@ function Header() {
         `}
                             </style>
                         </div>
-                        <select className="border rounded border-orange-600 m-5">
+                         <a className="text-black hover:text-cyan-700 cursor-pointer" href="https://www.amazon.in/">Coustermore Care</a>
+                        <select className="border rounded border-orange-600 m-5 cursor-pointer">
                             <option>Telugu 🏳‍🌈</option>
                             <option>English</option>
                             <option>Hindi</option>
                             <option>Franchies</option>
                         </select>
-                        <button className="relative rounded-full m-2 p-3 text-black   border rounded border-orange-600">
+                        <button className="relative rounded-full m-2 p-3 text-black cursor-pointer  border rounded border-orange-600">
                             <i className="fa-solid fa-user"></i>
                         </button>
-                        <button className="relative rounded-full p-3 m-2 text-black border rounded border-orange-600 ">
+                        <button className="relative rounded-full p-3 m-2 text-black border cursor-pointer rounded border-orange-600 ">
                             <i className="fa-solid fa-cart-arrow-down"></i>
                         </button>
                     </div>

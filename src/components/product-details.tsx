@@ -1,6 +1,7 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { products } from "./Allproducts";
+import Allproducts, { products, } from "./Allproducts";
+
 
 function ProductDetails() {
   const location = useLocation();
@@ -59,7 +60,7 @@ function ProductDetails() {
   );
 
   return (
-       <div className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+    <div className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Breadcrumb */}
         <nav className="flex mb-8">
@@ -96,9 +97,8 @@ function ProductDetails() {
                   <button
                     key={idx}
                     onClick={() => setMainImage(image)}
-                    className={`relative aspect-w-1 aspect-h-1 rounded-md overflow-hidden ${
-                      mainImage === image ? "ring-2 ring-yellow-400" : ""
-                    }`}
+                    className={`relative aspect-w-1 aspect-h-1 rounded-md overflow-hidden ${mainImage === image ? "ring-2 ring-yellow-400" : ""
+                      }`}
                   >
                     <img
                       src={image}
@@ -147,11 +147,10 @@ function ProductDetails() {
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`border rounded-md py-2 text-sm font-medium ${
-                        selectedSize === size
-                          ? "border-yellow-400 bg-yellow-50 text-yellow-600"
-                          : "border-gray-200 text-gray-900 hover:bg-gray-50"
-                      }`}
+                      className={`border rounded-md py-2 text-sm font-medium ${selectedSize === size
+                        ? "border-yellow-400 bg-yellow-50 text-yellow-600"
+                        : "border-gray-200 text-gray-900 hover:bg-gray-50"
+                        }`}
                     >
                       {size}
                     </button>
@@ -236,7 +235,54 @@ function ProductDetails() {
           </div>
         </div>
       </div>
-    </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {products.map((product) => (
+
+
+          <div key={product.id} className="group relative border rounded-xl shadow-md hover:shadow-lg transition p-4"
+          >
+            <Link
+              to={`/product-details?id=${product.id}`}
+              className="block"
+            >
+
+              <img
+                src={product.imageSrc}
+                alt={product.imageAlt}
+                className="aspect-square w-full rounded-md object-cover group-hover:opacity-90 lg:h-64"
+              />
+
+
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {product.name}
+                  </h3>
+                  <p className="text-sm text-gray-500">{product.href}</p>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {product.color} | {product.category}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-lg font-bold text-gray-900">₹{product.price}</p>
+                  <p className="text-sm text-gray-500 line-through">
+                    ₹{product.Discount}
+                  </p>
+                </div>
+              </div>
+            </Link>
+            <button
+              onClick={() => console.log("Added to Bag:", product.name)}
+              className="mt-4 w-full bg-yellow-400 transition-all duration-300 animate-pulse rounded hover:bg-yellow-500 rounded-lg py-2 font-medium"
+            >
+              Add to Bag
+            </button>
+          </div>
+
+        ))}
+
+      </div>
+    </div >
   );
 }
 

@@ -10,6 +10,8 @@ import Contact from "./components/Contact";
 import ProductDetails from "./components/product-details";
 import ColorSelector from "./components/data1";
 import Carousel from "./components/coursel";
+import ShareButton from "./components/Chatbot";
+import WhatsAppChat from "./components/Chatbot";
 
 
 function App() {
@@ -27,7 +29,7 @@ function App() {
         <Route path="/" element={<ColorSelector/>}></Route>
       </Routes>
       <Footer />
-     
+      <WhatsAppChat/>
       <Contact />
     </BrowserRouter>
   );
