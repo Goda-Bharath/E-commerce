@@ -56,6 +56,9 @@ function Header() {
                                 <Link to="bueaty-products" className="px-3 py-2 text-base font-medium text-black hover:bg-cyan-900/90 hover:text-white rounded-md">
                                     Beauty
                                 </Link>
+                                 <Link to="coustermer-care" className="px-3 py-2 text-base font-medium text-black hover:bg-cyan-900/90 hover:text-white rounded-md">
+                                    Coustermer Care
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -109,7 +112,6 @@ function Header() {
         `}
                             </style>
                         </div>
-                         <a className="text-black hover:text-cyan-700 cursor-pointer" href="https://www.amazon.in/">Coustermore Care</a>
                         <select className="border rounded border-orange-600 m-5 cursor-pointer">
                             <option>Telugu 🏳‍🌈</option>
                             <option>English</option>

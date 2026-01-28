@@ -10,8 +10,8 @@ import Contact from "./components/Contact";
 import ProductDetails from "./components/product-details";
 import ColorSelector from "./components/data1";
 import Carousel from "./components/coursel";
-import ShareButton from "./components/Chatbot";
 import WhatsAppChat from "./components/Chatbot";
+import Coustermercare from "./components/coustermercare";
 
 
 function App() {
@@ -26,6 +26,8 @@ function App() {
         <Route path="/kids-dress" element={<Kids />} />
         <Route path="/bueaty-products" element={<Bueaty />} />
         <Route path="/product-details" element={<ProductDetails />} />
+        <Route path="/customer-care" element={<Coustermercare />} />
+        <Route path="/coustermer-care" element={<Coustermercare />} />
         <Route path="/" element={<ColorSelector/>}></Route>
       </Routes>
       <Footer />

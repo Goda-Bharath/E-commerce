@@ -15,29 +15,26 @@ const WhatsAppChat = () => {
 
     return (
         <>
-            {/* WhatsApp Bubble - SVG Icon */}
             <button
                 onClick={() => setOpen(!open)}
                 className="fixed bottom-6 right-3 z-[100] h-12 w-12   hover:scale-110 transition-all duration-300  flex items-center justify-center active:scale-95 cursor-pointer"
                 aria-label="Open WhatsApp Chat"
             >
                 <svg
-  xmlns="http://www.w3.org/2000/svg"
-  fill="orange"
-  viewBox="0 0 24 24"
-  strokeWidth={1.9}
-  stroke="currentColor"
-  className="w-19 h-19"
->
-  <path
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    d="M8 10h8m-8 3h5m8-1c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4.2-.95L3 20l1.2-3.6A7.74 7.74 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z"
-  />
-</svg>
-
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="orange"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.9}
+                    stroke="currentColor"
+                    className="w-19 h-19"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8 10h8m-8 3h5m8-1c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4.2-.95L3 20l1.2-3.6A7.74 7.74 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z"
+                    />
+                </svg>
             </button>
-            {/* Rest of your popup code stays exactly the same */}
             {open && (
                 <div className="fixed bottom-35 right-6 w-120 bg-white rounded-2xl shadow-2xl z-[1001] border border-gray-200 animate-in slide-in-from-bottom-2 duration-300 max-h-[500px] cursor-pointer">
                     {/* Header */}
