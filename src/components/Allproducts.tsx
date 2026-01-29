@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Carousel from "./coursel";
 
 export const products = [
   // Men's Products
@@ -312,31 +312,35 @@ function Allproducts() {
   const [category, setCategory] = useState("All");
   const [sortOrder, setSortOrder] = useState("default");
 
-  
   const handleCategoryChange = (e: any) => {
     setCategory(e.target.value);
   };
 
- 
+
   const handleSortChange = (e: any) => {
     setSortOrder(e.target.value);
   };
 
- 
-  let filteredProducts =
+
+   let filteredProducts =
     category === "All"
       ? [...products]
       : products.filter((p) => p.category === category);
 
- 
+
   if (sortOrder === "low-high") {
     filteredProducts.sort((a, b) => a.price - b.price);
   } else if (sortOrder === "high-low") {
     filteredProducts.sort((a, b) => b.price - a.price);
   }
 
+
+const [quarter,setQuarter] = useState('All')
+
   return (
-    <div className="bg-white min-h-screen">
+
+    <div className="bg-white min-h-screen ">
+      <Carousel />
       <div className="mx-auto max-w-7xl px-4 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">
@@ -344,29 +348,38 @@ function Allproducts() {
           </h2>
         </div>
 
-   
         <div className="flex flex-wrap gap-4 mb-6">
-          <select className="border rounded px-4 py-2">
+
+         
+          <select
+            className="border rounded px-4 py-2"
+            value={quarter}
+            onChange={(e) => setQuarter(e.target.value)}
+          >
+
+            <option value="all">All Quarters</option>
             <option value="Q1">Q1</option>
             <option value="Q2">Q2</option>
             <option value="Q3">Q3</option>
             <option value="Q4">Q4</option>
           </select>
-
+         
           <select
             className="border rounded px-4 py-2"
             value={sortOrder}
-            onChange={handleSortChange}
+            onChange={(e) => setSortOrder(e.target.value)}
           >
+
             <option value="default">Sort by</option>
             <option value="low-high">Price: Low to High</option>
             <option value="high-low">Price: High to Low</option>
           </select>
-        </div>
 
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <div
+
               key={product.id}
               className="group relative border rounded-xl shadow-md hover:shadow-lg transition p-4"
             >
@@ -374,14 +387,14 @@ function Allproducts() {
                 to={`/product-details?id=${product.id}`}
                 className="block"
               >
-              
+
                 <img
                   alt={product.imageAlt}
                   src={product.imageSrc}
                   className="aspect-square w-full rounded-md object-cover group-hover:opacity-90 lg:h-64"
                 />
 
-            
+
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">
@@ -400,8 +413,6 @@ function Allproducts() {
                   </div>
                 </div>
               </Link>
-
-         
               <button
                 onClick={() => console.log("Added to Bag:", product.name)}
                 className="mt-4 w-full bg-yellow-400 transition-all duration-300 animate-pulse rounded hover:bg-yellow-500 rounded-lg py-2 font-medium"
@@ -414,9 +425,9 @@ function Allproducts() {
 
       </div>
     </div>
-     
+
   );
-} 
+}
 
 
 export default Allproducts;

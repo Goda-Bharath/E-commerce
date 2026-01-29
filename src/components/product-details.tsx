@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Allproducts, { products, } from "./Allproducts";
+import Carousel from "./coursel";
 
 
 function ProductDetails() {
@@ -60,18 +61,42 @@ function ProductDetails() {
   );
 
   return (
-    <div className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-white min-h-screen py-22 px-1 sm:px-43 lg:px-30 ">
+      <div className="max-w-9xl mx-auto">
         {/* Breadcrumb */}
         <nav className="flex mb-8">
           <ol className="flex items-center space-x-2 text-gray-500">
             <li>
               <button
                 onClick={() => navigate("/")}
-                className="hover:text-gray-900"
+                className="
+    relative overflow-hidden courser-pointer
+    px-6 py-2
+    rounded-full
+    font-semibold tracking-wider
+    text-cyan-300
+
+    bg-black/60 backdrop-blur-md
+    border border-cyan-400/40
+
+    shadow-[0_0_20px_rgba(34,211,238,0.5)]
+    transition-all duration-300
+
+    hover:text-black
+    hover:shadow-[0_0_45px_rgba(34,211,238,0.9)]
+    hover:scale-110
+
+    before:absolute before:inset-0
+    before:bg-gradient-to-r
+    before:from-transparent before:via-cyan-400/40 before:to-transparent
+    before:translate-x-[-120%]
+    hover:before:translate-x-[120%]
+    before:transition-transform before:duration-700 cursor-pointer
+  "
               >
                 Home
               </button>
+
             </li>
             <li>
               <span className="mx-2">/</span>
@@ -80,9 +105,9 @@ function ProductDetails() {
           </ol>
         </nav>
 
-        {/* Main layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10">
-          {/* Product Images */}
+      
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 m-12 gap-y-88">
+       
           <div className="space-y-4">
             <div className="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100">
               <img
@@ -111,7 +136,6 @@ function ProductDetails() {
             </div>
           </div>
 
-          {/* Product Info */}
           <div className="space-y-6">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold text-gray-900">
@@ -120,7 +144,7 @@ function ProductDetails() {
               <p className="text-lg text-gray-600">{product.href}</p>
             </div>
 
-            {/* Price */}
+          
             <div className="flex items-baseline space-x-4">
               <p className="text-3xl font-bold text-blue-600">
                 ₹{product.price}
@@ -133,7 +157,6 @@ function ProductDetails() {
               </span>
             </div>
 
-            {/* Color & Size */}
             <div className="space-y-4">
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Color</h3>
@@ -158,7 +181,7 @@ function ProductDetails() {
                 </div>
               </div>
 
-              {/* Quantity */}
+             
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Quantity</h3>
                 <div className="flex items-center mt-2 space-x-3">
@@ -181,7 +204,7 @@ function ProductDetails() {
               </div>
             </div>
 
-            {/* Buttons */}
+            
             <div className="grid grid-cols-2 gap-4 pt-4">
               <button
                 onClick={handleAddToCart}
@@ -237,8 +260,6 @@ function ProductDetails() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map((product) => (
-
-
           <div key={product.id} className="group relative border rounded-xl shadow-md hover:shadow-lg transition p-4"
           >
             <Link

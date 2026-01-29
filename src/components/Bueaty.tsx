@@ -104,12 +104,7 @@ function Bueaty() {
             Bueaty Shoping Products
           </h2>
           {/* Search */}
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="border rounded px-4 py-2 w-full md:w-72"
-
-          />
+        
         </div>
 
         {/* Filters & Sorting */}

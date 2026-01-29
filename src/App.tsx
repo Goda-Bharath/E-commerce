@@ -9,7 +9,6 @@ import Bueaty from "./components/Bueaty";
 import Contact from "./components/Contact";
 import ProductDetails from "./components/product-details";
 import ColorSelector from "./components/data1";
-import Carousel from "./components/coursel";
 import WhatsAppChat from "./components/Chatbot";
 import Coustermercare from "./components/coustermercare";
 
@@ -18,7 +17,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header/>
-      <Carousel/>
       <Routes>
         <Route path="/" element={<Allproducts />} />
         <Route path="/men-dress" element={<Men />} />
@@ -27,12 +25,11 @@ function App() {
         <Route path="/bueaty-products" element={<Bueaty />} />
         <Route path="/product-details" element={<ProductDetails />} />
         <Route path="/customer-care" element={<Coustermercare />} />
-        <Route path="/coustermer-care" element={<Coustermercare />} />
         <Route path="/" element={<ColorSelector/>}></Route>
       </Routes>
+   <Contact />
       <Footer />
       <WhatsAppChat/>
-      <Contact />
     </BrowserRouter>
   );
 }

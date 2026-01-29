@@ -14,7 +14,7 @@ function Header() {
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                         <button
                             type="button"
-                            aria-controls="mobile-menu"
+                            aria-controls="mobile-menu "
                             aria-expanded={mobileOpen}
                             onClick={() => setMobileOpen(!mobileOpen)}
                             className="relative inline-flex items-center justify-center rounded-md p-2 text-cyan-300 hover:bg-cyan-700/30 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500"
@@ -56,8 +56,8 @@ function Header() {
                                 <Link to="bueaty-products" className="px-3 py-2 text-base font-medium text-black hover:bg-cyan-900/90 hover:text-white rounded-md">
                                     Beauty
                                 </Link>
-                                 <Link to="coustermer-care" className="px-3 py-2 text-base font-medium text-black hover:bg-cyan-900/90 hover:text-white rounded-md">
-                                    Coustermer Care
+                                 <Link to="customer-care" className="px-3 py-2 text-base font-medium text-black hover:bg-cyan-900/90 hover:text-white rounded-md">
+                                    Customer Care
                                 </Link>
                             </div>
                         </div>
@@ -73,15 +73,15 @@ function Header() {
                                 {/* Input */}
                                 <input
                                     placeholder="Search for.........."
-                                    className="border border-orange-600 rounded px-4 py-1 h-6 text-black w-full"
+                                    className="border border-orange-600  rounded px-4 py-1 h-6 text-black w-full"
                                 />
 
                                 {/* Animated words inside input */}
-                                <div className="absolut left-60">     <ul className="pointer-events-none absolute left-30 top-5 -translate-y-1/2 h-9 w-32  ">
+                                <div className="absolut left-60 ">     <ul className="pointer-events-none absolute left-30 top-5 -translate-y-1/2 h-9 w-32  ">
                                     {words.map((word, index) => (
                                         <li
                                             key={index}
-                                            className="absolute left-0 top-0 animate-search-items text-gray-500"
+                                            className="absolute left-0 t animate-search-items text-gray-500"
                                             style={{
                                                 animationDelay: `${index * 2}s`,
                                                 animationDuration: `${words.length * 2}s`,
@@ -103,7 +103,6 @@ function Header() {
             25% { opacity: 0; transform: translateY(-10px); }
             100% { opacity: 0; }
           }
-
           .animate-search-items {
             animation-name: searchItems;
             animation-timing-function: ease-in-out;
