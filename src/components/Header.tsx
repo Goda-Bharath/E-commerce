@@ -6,6 +6,7 @@ function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const words = ["MEN WEAR", "WOMEN WEAR", "KIDS WEAR", "BUEATY",];
     const [open, setOpen] = useState(false);
+    const [close, setClose] = useState(false);
 
     return (
         <header className="sticky relative top-0 z-50 bg-white shadow-lg after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-cyan-400/40 p-2">
@@ -65,18 +66,11 @@ function Header() {
 
                     <div>
                         <div className="flex items-center gap-2 text-md font-extralight text-gray-400">
-
-
-
-
                             <div className="relative w-full md:w-72">
-                                {/* Input */}
                                 <input
                                     placeholder="Search for.........."
                                     className="border border-orange-600  rounded px-4 py-1 h-6 text-black w-full"
                                 />
-
-                                {/* Animated words inside input */}
                                 <div className="absolut left-60 ">     <ul className="pointer-events-none absolute left-30 top-5 -translate-y-1/2 h-9 w-32  ">
                                     {words.map((word, index) => (
                                         <li
@@ -117,9 +111,28 @@ function Header() {
                             <option>Franchies</option>
                         </select>
 
-                        <button className="relative rounded-full p-3 m-2 text-black border cursor-pointer rounded border-orange-600 ">
+                        <button onClick={() => setClose(!close)}
+                            className="relative rounded-full p-3 m-2 text-black border cursor-pointer rounded border-orange-600 ">
                             <i className="fa-solid fa-cart-arrow-down"></i>
                         </button>
+                        {close && (
+                            <div className="
+            absolute top-24 fixed right-79 
+            w-130 bg-white rounded-2xl shadow-2xl border
+            transition-transform duration-300
+            origin-bottom-right
+          ">
+                                <div className="flex items-center justify-between p-4 h-44 border-b">
+                                    <h3 className="font-semibold text-lg">No Items are in the cart</h3>
+                                    <button
+                                        onClick={() => setClose(false)}
+                                        className="text-gray-400 hover:text-gray-600  cursor-pointer"
+                                    >
+                                        ×
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                         <button
                             onClick={() => setOpen(!open)}
                             className="relative rounded-full p-3 m-2 text-black border cursor-pointer rounded border-orange-600 "
@@ -133,8 +146,7 @@ function Header() {
             w-130 bg-white rounded-2xl shadow-2xl border
             transition-transform duration-300
             origin-bottom-right
-          "
-                            >
+          ">
                                 <div className="flex items-center justify-between p-4 border-b">
                                     <h3 className="font-semibold text-lg">Login / Sign Up</h3>
                                     <button
