@@ -20,7 +20,7 @@ const WhatsAppChat = () => {
                 className="fixed bottom-6 right-3 z-[100] h-12 w-12   hover:scale-110 transition-all duration-300  flex items-center justify-center active:scale-95 cursor-pointer"
                 aria-label="Open WhatsApp Chat"
             >
-                <svg
+                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="orange"
                     viewBox="0 0 24 24"

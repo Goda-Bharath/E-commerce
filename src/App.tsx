@@ -13,6 +13,7 @@ import WhatsAppChat from "./components/Chatbot";
 import Coustermercare from "./components/coustermercare";
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -27,9 +28,10 @@ function App() {
         <Route path="/customer-care" element={<Coustermercare />} />
         <Route path="/" element={<ColorSelector/>}></Route>
       </Routes>
-   <Contact />
+      <Contact />
       <Footer />
       <WhatsAppChat/>
+
     </BrowserRouter>
   );
 }

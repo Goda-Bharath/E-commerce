@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const words = ["MEN WEAR", "WOMEN WEAR", "KIDS WEAR", "BUEATY",];
-
+    const [open, setOpen] = useState(false);
 
     return (
         <header className="sticky relative top-0 z-50 bg-white shadow-lg after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-cyan-400/40 p-2">
@@ -56,7 +56,7 @@ function Header() {
                                 <Link to="bueaty-products" className="px-3 py-2 text-base font-medium text-black hover:bg-cyan-900/90 hover:text-white rounded-md">
                                     Beauty
                                 </Link>
-                                 <Link to="customer-care" className="px-3 py-2 text-base font-medium text-black hover:bg-cyan-900/90 hover:text-white rounded-md">
+                                <Link to="customer-care" className="px-3 py-2 text-base font-medium text-black hover:bg-cyan-900/90 hover:text-white rounded-md">
                                     Customer Care
                                 </Link>
                             </div>
@@ -93,7 +93,6 @@ function Header() {
                                 </ul></div>
 
                             </div>
-                            {/* Tailwind custom animation inside same file */}
                             <style>
                                 {`
           @keyframes searchItems {
@@ -117,12 +116,71 @@ function Header() {
                             <option>Hindi</option>
                             <option>Franchies</option>
                         </select>
-                        <button className="relative rounded-full m-2 p-3 text-black cursor-pointer  border rounded border-orange-600">
-                            <i className="fa-solid fa-user"></i>
-                        </button>
+
                         <button className="relative rounded-full p-3 m-2 text-black border cursor-pointer rounded border-orange-600 ">
                             <i className="fa-solid fa-cart-arrow-down"></i>
                         </button>
+                        <button
+                            onClick={() => setOpen(!open)}
+                            className="relative rounded-full p-3 m-2 text-black border cursor-pointer rounded border-orange-600 "
+                        >
+                            <i className="fa-solid fa-user text-lg"></i>
+                        </button>
+                        {open && (
+                            <div
+                                className="
+            absolute top-24 fixed right-79 
+            w-130 bg-white rounded-2xl shadow-2xl border
+            transition-transform duration-300
+            origin-bottom-right
+          "
+                            >
+                                <div className="flex items-center justify-between p-4 border-b">
+                                    <h3 className="font-semibold text-lg">Login / Sign Up</h3>
+                                    <button
+                                        onClick={() => setOpen(false)}
+                                        className="text-gray-400 hover:text-gray-600 text-xl  cursor-pointer"
+                                    >
+                                        ×
+                                    </button>
+                                </div>
+
+                                <div className="p-4 space-y-4">
+                                    <input
+                                        type="text"
+                                        placeholder="Mobile number or Email"
+                                        className="w-full border rounded-lg px-4 py-2 focus:ring-1 focus:ring-orange-500 outline-none"
+                                    />
+
+                                    <input
+                                        type="password"
+                                        placeholder="Password"
+                                        className="w-full border rounded-lg px-4 py-2 focus:ring-1 focus:ring-orange-500 outline-none"
+                                    />
+
+                                    <button className="w-full bg-orange-500  cursor-pointer hover:bg-orange-600 text-white py-2 rounded-lg font-medium">
+                                        Continue
+                                    </button>
+
+                                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                                        <div className="flex-1 h-px bg-gray-200"></div>
+                                        OR
+                                        <div className="flex-1 h-px bg-gray-200"></div>
+                                    </div>
+
+                                    <button className="w-full border border-orange-500  cursor-pointer text-orange-500 py-2 rounded-lg hover:bg-orange-50">
+                                        Login with OTP
+                                    </button>
+
+                                    <p className="text-xs text-gray-500 text-center">
+                                        By continuing, you agree to our{" "}
+                                        <span className="text-orange-600 hover:text-black cursor-pointer">
+                                            Terms & Conditions
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
                 {mobileOpen && (
