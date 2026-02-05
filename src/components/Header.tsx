@@ -7,6 +7,7 @@ function Header() {
     const words = ["MEN WEAR", "WOMEN WEAR", "KIDS WEAR", "BUEATY",];
     const [open, setOpen] = useState(false);
     const [close, setClose] = useState(false);
+    const [selectedlocation, setselectedlocation] = useState(false);
 
     return (
         <header className="sticky relative top-0 z-50 bg-white shadow-lg after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-cyan-400/40 p-2">
@@ -104,12 +105,26 @@ function Header() {
         `}
                             </style>
                         </div>
-                        <select className="border rounded border-orange-600 m-5 cursor-pointer">
-                            <option>Telugu 🏳‍🌈</option>
-                            <option>English</option>
-                            <option>Hindi</option>
-                            <option>Franchies</option>
-                        </select>
+                        <button onClick={() => setselectedlocation(!selectedlocation)} className=" m-5 cursor-pointer">
+                            <option className="hover:text-blue-600">Select Location ▼ </option>
+                            {selectedlocation && (<div className="
+            absolute top-24 fixed right-79 
+            w-130 bg-white rounded-2xl shadow-2xl border
+            transition-transform duration-300
+            origin-bottom-right
+          ">
+                                <div className="flex items-center justify-between p-4 h-94 ">
+                                    <h3>Select the Location </h3>
+                                    <button
+                                        onClick={() => setselectedlocation(false)}
+                                        className="text-gray-400 hover:text-gray-600  cursor-pointer  "
+                                    >
+                                        ×
+                                    </button>
+
+                                </div>
+                            </div>)}
+                        </button>
 
                         <button onClick={() => setClose(!close)}
                             className="relative rounded-full p-3 m-2 text-black border cursor-pointer rounded border-orange-600 ">
@@ -122,7 +137,7 @@ function Header() {
             transition-transform duration-300
             origin-bottom-right
           ">
-                                <div className="flex items-center justify-between p-4 h-44 border-b">
+                                <div className="flex items-center justify-between p-4 h-44">
                                     <h3 className="font-semibold text-lg">No Items are in the cart</h3>
                                     <button
                                         onClick={() => setClose(false)}

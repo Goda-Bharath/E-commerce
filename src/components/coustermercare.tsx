@@ -5,7 +5,7 @@ function Coustmercare() {
 
   return (
 
-    <div className="p-7 grid grid-cols-2 gap-8">
+    <div className="p-7 grid grid-cols-2 gap-8 mx-auto max-w-7xl px-4 py-12">
       <Link
         to="/customer-care"
       >
@@ -14,7 +14,7 @@ function Coustmercare() {
           <div className="max-w-4xl mx-auto px-4 py-10 font-sans">
 
   {/* Header */}
-  <div className="text-center mb-10">
+  <div className="text-center">
     <h2 className="text-3xl font-bold text-gray-800 mb-2">
       Contact Us
     </h2>
@@ -24,7 +24,7 @@ function Coustmercare() {
   </div>
 
   {/* Contact Details */}
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full ">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full  ">
 
     <div className="bg-gray-50 p-5 rounded-lg shadow-sm w-43 ">
       <h4 className="text-lg font-semibold text-gray-800 mb-1">
