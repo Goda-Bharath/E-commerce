@@ -341,7 +341,7 @@ const [quarter,setQuarter] = useState('All')
 
     <div className="bg-white min-h-screen ">
       <Carousel />
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 py-8 sm:py-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">
             All Shoping Products
