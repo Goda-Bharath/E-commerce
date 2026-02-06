@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const words = ["MEN WEAR", "WOMEN WEAR", "KIDS WEAR", "BUEATY",];
-    const [open, setOpen] = useState(false);
-    const [close, setClose] = useState(false);
+    const [opencart, setOpencart] = useState(false);
+    const [closeuser, setCloseuser] = useState(false);
     const [selectedlocation, setselectedlocation] = useState(false);
 
     return (
@@ -126,35 +126,83 @@ function Header() {
                             </div>)}
                         </button>
 
-                        <button onClick={() => setClose(!close)}
+                        <button onClick={() => setOpencart(!opencart)}
                             className="relative rounded-full p-3 m-2 text-black border cursor-pointer rounded border-orange-600 ">
                             <i className="fa-solid fa-cart-arrow-down"></i>
                         </button>
-                        {close && (
+                        {opencart && (
                             <div className="
             absolute top-24 fixed right-79 
-            w-130 bg-white rounded-2xl shadow-2xl border
-            transition-transform duration-300
             origin-bottom-right
           ">
                                 <div className="flex items-center justify-between p-4 h-44">
-                                    <h3 className="font-semibold text-lg">No Items are in the cart</h3>
                                     <button
-                                        onClick={() => setClose(false)}
-                                        className="text-gray-400 hover:text-gray-600  cursor-pointer"
+                                        onClick={() => setOpencart(false)}
                                     >
-                                        ×
                                     </button>
+
+                                    {/* BACKDROP */}
+                                    {opencart && (
+                                        <div
+                                            className="fixed inset-0 bg-gray-500/75 z-40"
+                                            onClick={() => setOpencart(false)}
+                                        />
+                                    )}
+
+                                    {/* DRAWER */}
+                                    <div
+                                        className={`fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white shadow-xl transform transition-transform duration-300
+        ${opencart ? "translate-x-0" : "translate-x-full"}`}
+                                    >
+                                        {/* HEADER */}
+                                        <div className="flex items-center justify-between p-4 border-b">
+                                            <h2 className="text-lg font-semibold">Shopping Cart</h2>
+                                            <button
+                                                onClick={() => setOpencart(false)}
+                                                className="text-gray-400 hover:text-gray-600 text-xl"
+                                            >
+                                                ×
+                                            </button>
+                                        </div>
+
+                                        {/* BODY */}
+                                        <div className="p-4 space-y-6 overflow-y-auto h-full">
+                                            <div className="flex gap-4">
+                                                <img
+                                                    src="https://tailwindcss.com/plus-assets/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                                    className="w-20 h-20 rounded border object-cover"
+                                                    alt=""
+                                                />
+                                                <div className="flex-1">
+                                                    <h3 className="font-medium">Throwback Hip Bag</h3>
+                                                    <p className="text-sm text-gray-500">Qty 1</p>
+                                                    <p className="font-semibold">$90.00</p>
+                                                </div>
+                                            </div>
+
+                                            <button className="w-full bg-indigo-600 text-white py-3 rounded hover:bg-indigo-700">
+                                                Checkout
+                                            </button>
+
+                                            <button
+                                                onClick={() => setOpencart(false)}
+                                                className="w-full text-indigo-600 font-medium"
+                                            >
+                                                Continue Shopping →
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         )}
                         <button
-                            onClick={() => setOpen(!open)}
+                            onClick={() => setCloseuser(!closeuser)}
                             className="relative rounded-full p-3 m-2 text-black border cursor-pointer rounded border-orange-600 "
                         >
                             <i className="fa-solid fa-user text-lg"></i>
                         </button>
-                        {open && (
+                        {closeuser && (
+
                             <div
                                 className="
             absolute top-24 fixed right-79 
@@ -165,7 +213,7 @@ function Header() {
                                 <div className="flex items-center justify-between p-4 border-b">
                                     <h3 className="font-semibold text-lg">Login / Sign Up</h3>
                                     <button
-                                        onClick={() => setOpen(false)}
+                                        onClick={() => setCloseuser(false)}
                                         className="text-gray-400 hover:text-gray-600 text-xl  cursor-pointer"
                                     >
                                         ×
