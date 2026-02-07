@@ -152,7 +152,7 @@ function Header() {
                                     {/* DRAWER */}
                                     <div
                                         className={`fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white shadow-xl transform transition-transform duration-300
-        ${opencart ? "translate-x-0" : "translate-x-full"}`}
+                                        ${opencart ? "translate-x-0" : "translate-x-full"}`}
                                     >
                                         {/* HEADER */}
                                         <div className="flex items-center justify-between p-4 border-b">

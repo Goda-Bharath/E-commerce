@@ -322,7 +322,7 @@ function Allproducts() {
   };
 
 
-   let filteredProducts =
+  let filteredProducts =
     category === "All"
       ? [...products]
       : products.filter((p) => p.category === category);
@@ -335,12 +335,28 @@ function Allproducts() {
   }
 
 
-const [quarter,setQuarter] = useState('All')
+  const [quarter, setQuarter] = useState('All')
 
   return (
 
     <div className="bg-white min-h-screen ">
       <Carousel />
+      <div className="w-full bg-black overflow-hidden">
+        <div className="w-full bg-black overflow-hidden">
+          <div className="scroll-track">
+            <span>🔥 Flat 50% OFF</span>
+            <span>🚚 Free Shipping</span>
+            <span>🎁 Buy 1 Get 2</span>
+            <span>💳 Extra Bank Discount</span>
+            <span>🔥 Flat 50% OFF</span>
+            <span>🚚 Free Shipping</span>
+            <span>🎁 Buy 1 Get 2</span>
+            <span>💳 Extra Bank Discount</span>
+             <span>🔥 Flat 30% OFF</span>
+          </div>
+        </div>
+
+      </div>
       <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 py-8 sm:py-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">
@@ -350,7 +366,7 @@ const [quarter,setQuarter] = useState('All')
 
         <div className="flex flex-wrap gap-4 mb-6">
 
-         
+
           <select
             className="border rounded px-4 py-2"
             value={quarter}
@@ -363,7 +379,7 @@ const [quarter,setQuarter] = useState('All')
             <option value="Q3">Q3</option>
             <option value="Q4">Q4</option>
           </select>
-         
+
           <select
             className="border rounded px-4 py-2"
             value={sortOrder}

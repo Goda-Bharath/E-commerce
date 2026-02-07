@@ -10,3 +10,24 @@
 }
 
 
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 13s linear infinite;
+}
+
+.scroll-track span {
+  white-space: nowrap;
+  padding: 12px 40px;
+  color: white;
+  font-size: 14px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-30%);
+  }
+}
