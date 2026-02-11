@@ -15,12 +15,47 @@ const WhatsAppChat = () => {
 
     return (
         <>
+            <div className="fixed bottom-20 right-3 z-[100] group">
+                <button
+                    className="cursor-pointer
+      h-14 w-14
+      rounded-full
+      flex items-center justify-center
+      text-white text-xl
+      bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600
+      shadow-lg shadow-pink-400/40
+      hover:scale-110 hover:shadow-xl hover:shadow-pink-500/60
+      active:scale-95
+      transition-all duration-300 ease-in-out
+    "
+                >
+                    ♻️
+                </button>
+
+                <span className="
+      absolute right-16 top-14 -translate-y-1/2
+      bg-black text-white text-sm px-3 py-3
+      rounded-md opacity-0 group-hover:opacity-100
+      transition duration-300 whitespace-nowrap
+    ">
+                    Exchange  & Get coupen code
+                </span>
+                <span className="
+      absolute right-16 top-2 -translate-y-1/2
+      bg-black text-white text-sm px-3 py-3
+      rounded-md opacity-0 group-hover:opacity-100
+      transition duration-300 whitespace-nowrap
+    ">
+                    Give old dress  & Save ₹500
+                </span>
+            </div>
+
             <button
                 onClick={() => setOpen(!open)}
-                className="fixed bottom-6 right-3 z-[100] h-12 w-12   hover:scale-110 transition-all duration-300  flex items-center justify-center active:scale-95 cursor-pointer"
+                className="fixed bottom-6 right-3 z-[100] h-12 w-12  hover:scale-110 transition-all duration-300  flex items-center justify-center active:scale-95 cursor-pointer"
                 aria-label="Open WhatsApp Chat"
             >
-                 <svg
+                <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="orange"
                     viewBox="0 0 24 24"

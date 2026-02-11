@@ -9,8 +9,6 @@ function ProductDetails() {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const productId = queryParams.get("id");
-
-  // If the link passed the full product via location.state, prefer that
   const state = (location.state as any) || null;
   const product = state && state.product ? state.product : products.find((p) => String(p.id) === productId);
 
@@ -53,8 +51,6 @@ function ProductDetails() {
       selectedSize,
     });
   };
-
-  // Calculate discount percentage safely
   const originalPrice = parseFloat(product.Discount.replace(/[^\d]/g, ""));
   const discountPercent = Math.round(
     ((originalPrice - product.price) / originalPrice) * 100
