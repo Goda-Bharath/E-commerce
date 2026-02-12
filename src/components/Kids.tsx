@@ -74,7 +74,7 @@ function Kids() {
             Kids Shoping Products
           </h2>
           {/* Search */}
-         
+
         </div>
 
         {/* Filters & Sorting */}
@@ -100,8 +100,6 @@ function Kids() {
             <option value="high-low">Price: High to Low</option>
           </select>
         </div>
-
-        {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {Kidsdata.map((dataset) => (
             <div
@@ -119,8 +117,6 @@ function Kids() {
                   src={dataset.imageSrc}
                   className="aspect-square w-full rounded-md object-cover group-hover:opacity-90 lg:h-64"
                 />
-
-                {/* Info */}
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">
@@ -139,8 +135,6 @@ function Kids() {
                   </div>
                 </div>
               </Link>
-
-              {/* Add to Bag Button */}
               <button
                 onClick={() => console.log("Added to Bag:", dataset.name)}
                 className="mt-4 w-full bg-yellow-400 transition-all duration-300 animate-pulse rounded hover:bg-yellow-500 rounded-lg py-2 font-medium"

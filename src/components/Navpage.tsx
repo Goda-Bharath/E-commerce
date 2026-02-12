@@ -8,7 +8,6 @@ function Navpage() {
 
   useEffect(() => {
     console.log("Product name from URL:", params.productName);
-    // Fetch product data using params.productName if needed
   }, [params.productName]);
 
   return (

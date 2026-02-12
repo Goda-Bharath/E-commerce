@@ -11,6 +11,7 @@ import ProductDetails from "./components/product-details";
 import ColorSelector from "./components/data1";
 import WhatsAppChat from "./components/Chatbot";
 import Coustermercare from "./components/coustermercare";
+import ExchangeOffer from "./components/Exchangeoffer";
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/bueaty-products" element={<Bueaty />} />
         <Route path="/product-details" element={<ProductDetails />} />
         <Route path="/customer-care" element={<Coustermercare />} />
+        <Route path="/exchang-dress" element={<ExchangeOffer/>}></Route>
         <Route path="/" element={<ColorSelector/>}></Route>
       </Routes>
       <Contact />

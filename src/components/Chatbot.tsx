@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const WhatsAppChat = () => {
     const [open, setOpen] = useState(false);
@@ -16,7 +17,7 @@ const WhatsAppChat = () => {
     return (
         <>
             <div className="fixed bottom-20 right-3 z-[100] group">
-                <button
+                <Link to={"/exchang-dress"}
                     className="cursor-pointer
       h-14 w-14
       rounded-full
@@ -30,24 +31,22 @@ const WhatsAppChat = () => {
     "
                 >
                     ♻️
-                </button>
+                </Link>
 
-                <span className="
-      absolute right-16 top-14 -translate-y-1/2
+                <Link to={"/exchang-dress"} className="
+      absolute right-16 top-15 -translate-y-1/2
       bg-black text-white text-sm px-3 py-3
       rounded-md opacity-0 group-hover:opacity-100
       transition duration-300 whitespace-nowrap
-    ">
-                    Exchange  & Get coupen code
-                </span>
-                <span className="
+    "> Give old dress  & Save ₹500</Link>
+                <Link to={"/exchang-dress"} className="
       absolute right-16 top-2 -translate-y-1/2
       bg-black text-white text-sm px-3 py-3
       rounded-md opacity-0 group-hover:opacity-100
       transition duration-300 whitespace-nowrap
     ">
-                    Give old dress  & Save ₹500
-                </span>
+                    Exchange  & Get coupen code
+                </Link>
             </div>
 
             <button
