@@ -113,16 +113,28 @@ function Header() {
             transition-transform duration-300
             origin-bottom-right
           ">
-                                <div className="flex items-center justify-between p-4 h-94 ">
-                                    <h3>Select the Location </h3>
-                                    <button
-                                        onClick={() => setselectedlocation(false)}
-                                        className="text-gray-400 hover:text-gray-600  cursor-pointer  "
-                                    >
-                                        ×
-                                    </button>
+                                <div className="flex flex-col gap-4 p-4 h-[400px]">
+                                    <div className="flex justify-between items-center">
+                                        <h3>Select the Location</h3>
 
+                                        <button
+                                            onClick={() => setselectedlocation(false)}
+                                            className="text-gray-400 hover:text-gray-600 cursor-pointer"
+                                        >
+                                            ×
+                                        </button>
+                                    </div>
+
+                                    <iframe
+                                        src="https://www.google.com/maps?q=India&output=embed"
+                                        width="100%"
+                                        height="500"
+                                        style={{ border: 0 }}
+                                        allowFullScreen
+                                        loading="lazy"
+                                    ></iframe>
                                 </div>
+
                             </div>)}
                         </button>
 
