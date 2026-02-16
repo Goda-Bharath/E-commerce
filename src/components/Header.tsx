@@ -1,6 +1,6 @@
 import { Select } from "@headlessui/react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
 
 function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -68,7 +68,7 @@ function Header() {
                     <div>
                         <div className="flex items-center gap-2 text-md font-extralight text-gray-400">
                             <div className="relative w-full md:w-72">
-                                <input
+                                <input 
                                     placeholder="Search for.........."
                                     className="border border-orange-600  rounded px-4 py-1 h-6 text-black w-full"
                                 />

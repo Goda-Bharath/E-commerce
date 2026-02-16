@@ -307,143 +307,96 @@ export const products = [
     category: "All",
   },
 ]
-
-function Allproducts() {
-  const [category, setCategory] = useState("All");
+function ProductList({ product }) {
+  const [quarter, setQuarter] = useState("all");
   const [sortOrder, setSortOrder] = useState("default");
-
-  const handleCategoryChange = (e: any) => {
-    setCategory(e.target.value);
-  };
-
-
-  const handleSortChange = (e: any) => {
-    setSortOrder(e.target.value);
-  };
-
-
-  let filteredProducts =
-    category === "All"
-      ? [...products]
-      : products.filter((p) => p.category === category);
-
-
-  if (sortOrder === "low-high") {
-    filteredProducts.sort((a, b) => a.price - b.price);
-  } else if (sortOrder === "high-low") {
-    filteredProducts.sort((a, b) => b.price - a.price);
-  }
-
-
-  const [quarter, setQuarter] = useState('All')
+  const filteredProducts =
+    quarter === "all"
+      ? products
+      : products.filter((product) => products.quarter === quarter);
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortOrder === "low-high") {
+      return Number(a.price) - Number(b.price);
+    }
+    if (sortOrder === "high-low") {
+      return Number(b.price) - Number(a.price);
+    }
+    return 0;
+  });
 
   return (
+    <div className="p-6">
 
-    <div className="bg-white min-h-screen ">
-      <Carousel />
-      <div className="w-full bg-black overflow-hidden">
-        <div className="w-full bg-black overflow-hidden">
-          <div className="scroll-track">
-            <span>🔥 Flat 50% OFF</span>
-            <span>🚚 Free Shipping</span>
-            <span>🎁 Buy 1 Get 2</span>
-            <span>💳 Extra Bank Discount</span>
-            <span>🔥 Flat 50% OFF</span>
-            <span>🚚 Free Shipping</span>
-            <span>🎁 Buy 1 Get 2</span>
-            <span>💳 Extra Bank Discount</span>
-             <span>🔥 Flat 30% OFF</span>
-          </div>
-        </div>
+      <div className="flex flex-wrap gap-4 mb-6">
+        <select
+          className="border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          value={quarter}
+          onChange={(e) => setQuarter(e.target.value)}
+        >
+          <option value="all">All Quarters</option>
+          <option value="Q1">Q1</option>
+          <option value="Q2">Q2</option>
+          <option value="Q3">Q3</option>
+          <option value="Q4">Q4</option>
+        </select>
 
+        <select
+          className="border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="default">Sort by</option>
+          <option value="low-high">Price: Low to High</option>
+          <option value="high-low">Price: High to Low</option>
+        </select>
       </div>
-      <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 py-8 sm:py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-            All Shoping Products
-          </h2>
-        </div>
-
-        <div className="flex flex-wrap gap-4 mb-6">
-
-
-          <select
-            className="border rounded px-4 py-2"
-            value={quarter}
-            onChange={(e) => setQuarter(e.target.value)}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedProducts.map((product) => (
+          <div
+            key={product.id}
+            className="group relative border rounded-xl shadow-md hover:shadow-xl transition duration-300 p-4 bg-white"
           >
+            <Link to={`/product-details?id=${product.id}`} className="block">
 
-            <option value="all">All Quarters</option>
-            <option value="Q1">Q1</option>
-            <option value="Q2">Q2</option>
-            <option value="Q3">Q3</option>
-            <option value="Q4">Q4</option>
-          </select>
+              <img
+                alt={product.imageAlt}
+                src={product.imageSrc}
+                className="aspect-square w-full rounded-md object-cover group-hover:scale-105 transition duration-300 lg:h-64"
+              />
 
-          <select
-            className="border rounded px-4 py-2"
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-          >
-
-            <option value="default">Sort by</option>
-            <option value="low-high">Price: Low to High</option>
-            <option value="high-low">Price: High to Low</option>
-          </select>
-
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <div
-
-              key={product.id}
-              className="group relative border rounded-xl shadow-md hover:shadow-lg transition p-4"
-            >
-              <Link
-                to={`/product-details?id=${product.id}`}
-                className="block"
-              >
-
-                <img
-                  alt={product.imageAlt}
-                  src={product.imageSrc}
-                  className="aspect-square w-full rounded-md object-cover group-hover:opacity-90 lg:h-64"
-                />
-
-
-                <div className="mt-4 flex justify-between">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {product.name}
-                    </h3>
-                    <p className="text-sm text-gray-500">{product.href}</p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      {product.color} | {product.category}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-lg font-bold text-gray-900">₹{product.price}</p>
-                    <p className="text-sm text-gray-500 line-through">
-                      ₹{product.Discount}
-                    </p>
-                  </div>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {product.name}
+                  </h3>
+                  <p className="text-sm text-gray-500">{product.href}</p>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {product.color} | {product.category}
+                  </p>
                 </div>
-              </Link>
-              <button
-                onClick={() => console.log("Added to Bag:", product.name)}
-                className="mt-4 w-full bg-yellow-400 transition-all duration-300 animate-pulse rounded hover:bg-yellow-500 rounded-lg py-2 font-medium"
-              >
-                Add to Bag
-              </button>
-            </div>
-          ))}
-        </div>
 
+                <div className="text-right">
+                  <p className="text-lg font-bold text-gray-900">
+                    ₹{product.price}
+                  </p>
+                  <p className="text-sm text-gray-500 line-through">
+                    ₹{product.discount}
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <button
+              onClick={() => console.log("Added to Bag:", product.name)}
+              className="mt-4 w-full bg-yellow-400 hover:bg-yellow-500 transition-all duration-300 rounded-lg py-2 font-medium shadow-md hover:shadow-lg"
+            >
+              Add to Bag
+            </button>
+          </div>
+        ))}
       </div>
     </div>
-
   );
 }
 
-
-export default Allproducts;
+export default ProductList;
