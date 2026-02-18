@@ -310,6 +310,7 @@ export const products = [
 function ProductList({ product }) {
   const [quarter, setQuarter] = useState("all");
   const [sortOrder, setSortOrder] = useState("default");
+
   const filteredProducts =
     quarter === "all"
       ? products
