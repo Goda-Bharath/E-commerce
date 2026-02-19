@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "./coursel";
 
@@ -307,14 +307,17 @@ export const products = [
     category: "All",
   },
 ]
-function ProductList({ product }) {
+function ProductList({ product}) {
   const [quarter, setQuarter] = useState("all");
   const [sortOrder, setSortOrder] = useState("default");
+  const [,setProducts] = useState<any[]>([]);
+
+
 
   const filteredProducts =
     quarter === "all"
       ? products
-      : products.filter((product) => products.quarter === quarter);
+      : products.filter((products) => products.quarter === quarter);
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOrder === "low-high") {
       return Number(a.price) - Number(b.price);
@@ -324,7 +327,11 @@ function ProductList({ product }) {
     }
     return 0;
   });
-
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/products/")
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, []);
   return (
     <div className="p-6">
 
