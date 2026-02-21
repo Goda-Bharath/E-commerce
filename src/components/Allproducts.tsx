@@ -334,7 +334,6 @@ function ProductList({ product}) {
   }, []);
   return (
     <div className="p-6">
-
       <div className="flex flex-wrap gap-4 mb-6">
         <select
           className="border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
