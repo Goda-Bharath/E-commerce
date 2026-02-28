@@ -1,9 +1,7 @@
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
-import Carousel from "./coursel";
 
 export const products = [
-  // Men's Products
   {
     id: 'm1',
     name: 'EYEBOGLER',

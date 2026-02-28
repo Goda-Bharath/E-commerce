@@ -1,71 +1,19 @@
+import { useState,} from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-
-
-const productdata = [
-  {
-    id: 1,
-    name: 'ALPHA TRIBE',
-    href: 'Men Pop Print Medium  Corn Full Shirt  with printed cotton',
-    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20250704/T0uN/6867b69bb13fc54eddf7477d/-473Wx593H-701870527-mustard-MODEL3.jpg',
-    imageAlt: "Men Regular Fit Shirt with Full Sleeves",
-    price: 749,
-    Discount: '$35',
-    color: 'ISO Yellow',
-  },
-  {
-    id: 2,
-    name: 'CAMPUS SUTRA.',
-    href: 'Men Floral Print Regular Fit Shirt with Spread Collar',
-    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20240409/NYAJ/6614441116fd2c6e6aa5b65f/-473Wx593H-467236683-multi-MODEL.jpg',
-    imageAlt: "Front of men's Basic Tee in white.",
-    price: 1449,
-    Discount: '$75',
-    color: 'dev colors',
-  },
-  {
-    id: 3,
-    name: 'U.S. POLO ASSN.',
-    href: 'Shein Cuban Collar Overlay  Fit Shirt',
-    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20230512/nLEs/645e55f842f9e729d77cb386/-473Wx593H-469477464-white-MODEL.jpg',
-    imageAlt: "Front of men's Basic Tee in white.",
-    price: 449,
-    Discount: '$35',
-    color: 'pure White',
-  },
+export const products = [
   {
     id: 4,
-    name: 'EYEBOGLER',
-    href: 'Men Stripes Regular Fit Shirt',
-    imageSrc: 'https://assets.ajio.com/medias/sys_master/root1/20250808/exCj/6895dade3d468c61ab592144/-473Wx593H-702089591-blue-MODEL.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: 349,
+    name: 'BOMBAY BEGUM',
+    href: 'Men Pop Print Medium  Corn Full Shirt',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20230623/XI65/649541b6d55b7d0c63b6e691/-473Wx593H-464879851-blue-MODEL.jpg',
+    imageAlt: "Front of men's forming an isometric cube.",
+    price: 649,
     Discount: '$35',
-    color: 'Maron',
+    color: 'Iso Dots',
   },
   {
     id: 5,
-    name: 'SHEIN',
-    href: 'Shein Cuban Textured Relaxed Fit Shirt',
-    imageSrc: 'https://assets.sheinindia.in/medias/shein_sys_master/root/20250312/nKZG/67d1721f59f8353980323e28/shein_beige_shein_cuban_collar_short_sleeves_textured_shirt.jpg',
-    imageAlt: "Front of men's Basic Tee in white.",
-    price: 449,
-    Discount: '$35',
-    color: 'Aspen White',
-  },
-  {
-    id: 6,
-    name: 'NETPLAY',
-    href: 'Front of mens Basic Tee in dark gray',
-    imageSrc: 'https://assets.sheinindia.in/medias/shein_sys_master/root/20250510/r5S9/681f223a7a6cd4182f250724/-473Wx593H-443327677-black-MODEL.jpg',
-    imageAlt: "Front of men's Basic Tee in dark gray.",
-    price: 349,
-    Discount: '$35',
-    color: 'Black',
-  },
-  {
-    id: 7,
-    name: 'JOHN PLAYERS shirt',
+    name: 'JOHN PLAYERS JEANS',
     href: 'Men Checked Slim Fit Shacket',
     imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20240719/edRZ/669a5fb31d763220fa087966/-473Wx593H-443037161-black-MODEL.jpg',
     imageAlt: "Front of men's Basic Tee in black.",
@@ -74,7 +22,7 @@ const productdata = [
     color: 'Pure Black',
   },
   {
-    id: 8,
+    id: 6,
     name: 'U.S. POLO ASSN.',
     href: 'Shein Cuban Collar Overlay  Fit Shirt',
     imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20230512/nLEs/645e55f842f9e729d77cb386/-473Wx593H-469477464-white-MODEL.jpg',
@@ -84,26 +32,48 @@ const productdata = [
     color: 'pure White',
   },
   {
-    id: 9,
-    name: 'BOMBAY BEGUM',
-    href: 'Men Pop Print Medium  Corn Full Shirt',
-    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20230623/XI65/649541b6d55b7d0c63b6e691/-473Wx593H-464879851-blue-MODEL.jpg',
-    imageAlt: "Front of men's forming an isometric cube.",
-    price: 649,
+    id: 7,
+    name: 'THE INDIAN GARAGE CO',
+    href: 'Striped Shirt with Patch Pocket with printed fromal checks ',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20230215/H62m/63ecef58aeb26924e373ad94/-473Wx593H-469448036-blue-MODEL.jpg',
+    imageAlt: "Front of men's Basic Tee in dark gray.",
+    price: 849,
     Discount: '$35',
-    color: 'Iso Dots',
-    category: "men products",
+    color: 'culumba',
+  },
+  {
+    id: 8,
+    name: 'ALPHA TRIBE',
+    href: 'Men Pop Print Medium  Corn Full Shirt with printed cotton',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20250704/T0uN/6867b69bb13fc54eddf7477d/-473Wx593H-701870527-mustard-MODEL3.jpg',
+    imageAlt: "Men Regular Fit Shirt with Full Sleeves",
+    price: 749,
+    Discount: '$35',
+    color: 'ISO Yellow',
+  },
+  {
+    id: 9,
+    name: 'CAMPUS SUTRA.',
+    href: 'Men Floral Print Regular Fit Shirt with Spread Collar',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20240409/NYAJ/6614441116fd2c6e6aa5b65f/-473Wx593H-467236683-multi-MODEL.jpg',
+    imageAlt: "Front of men's Basic Tee in white.",
+    price: 1449,
+    Discount: '$75',
+    color: 'dev colors',
   },
 ]
-
-
-function Men() {
+function ProductListed({ product }) {
   const [quarter, setQuarter] = useState("all");
   const [sortOrder, setSortOrder] = useState("default");
+  const [, setProducts] = useState<any[]>([]);
+
+
+
+  const filteredProducts =
     quarter === "all"
-      ? Men
-      : productdata.filter(() => productdata.quarter === quarter);
-  const sortedProducts = [...productdata].sort((a, b) => {
+      ? products
+      : products.filter((products) => products.quarter === quarter);
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOrder === "low-high") {
       return Number(a.price) - Number(b.price);
     }
@@ -112,7 +82,6 @@ function Men() {
     }
     return 0;
   });
-
   return (
     <div className="p-6">
       <div className="flex flex-wrap gap-4 mb-6">
@@ -184,7 +153,7 @@ function Men() {
         ))}
       </div>
     </div>
-
-  )
+  );
 }
-export default Men;
+
+export default ProductListed;
