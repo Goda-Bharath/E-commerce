@@ -12,6 +12,7 @@ import ColorSelector from "./components/data1";
 import WhatsAppChat from "./components/Chatbot";
 import Coustermercare from "./components/coustermercare";
 import ExchangeOffer from "./components/Exchangeoffer";
+import Navpage from "./components/Navpage";
 
 
 
@@ -21,7 +22,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Allproducts/>} />
-        <Route path="/men-dress" element={<Men />} />
+        <Route path="/men-dress" element={<Men/>} />
         <Route path="/women-saress-dress" element={<Women />} />
         <Route path="/kids-dress" element={<Kids />} />
         <Route path="/bueaty-products" element={<Bueaty />} />
