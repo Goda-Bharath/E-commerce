@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const products = [
@@ -305,13 +305,10 @@ export const products = [
     category: "All",
   },
 ]
-function ProductList({ product}) {
+function ProductList({ product }) {
   const [quarter, setQuarter] = useState("all");
   const [sortOrder, setSortOrder] = useState("default");
-  const [,setProducts] = useState<any[]>([]);
-
-
-
+  const [, setProducts] = useState<any[]>([]);
   const filteredProducts =
     quarter === "all"
       ? products
@@ -354,6 +351,9 @@ function ProductList({ product}) {
           <option value="low-high">Price: Low to High</option>
           <option value="high-low">Price: High to Low</option>
         </select>
+        <div className="relative w-full md:w-72">
+          
+        </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {sortedProducts.map((product) => (

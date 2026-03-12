@@ -1,13 +1,14 @@
 import { Select } from "@headlessui/react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const words = ["MEN WEAR", "WOMEN WEAR", "KIDS WEAR", "BUEATY",];
     const [opencart, setOpencart] = useState(false);
     const [closeuser, setCloseuser] = useState(false);
     const [selectedlocation, setselectedlocation] = useState(false);
+    const [opensearch,setOpensearch] = useState(false);
+    const words = ["MEN WEAR", "WOMEN WEAR", "KIDS WEAR", "BUEATY",];
 
     return (
         <header className="sticky relative top-0 z-50 bg-white shadow-lg after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-cyan-400/40 p-2">
@@ -68,25 +69,6 @@ function Header() {
                     <div>
                         <div className="flex items-center gap-2 text-md font-extralight text-gray-400">
                             <div className="relative w-full md:w-72">
-                                <input 
-                                    placeholder="Search for.........."
-                                    className="border border-orange-600  rounded px-4 py-1 h-6 text-black w-full"
-                                />
-                                <div className="absolut left-60 ">     <ul className="pointer-events-none absolute left-30 top-5 -translate-y-1/2 h-9 w-32  ">
-                                    {words.map((word, index) => (
-                                        <li
-                                            key={index}
-                                            className="absolute left-0 t animate-search-items text-gray-500"
-                                            style={{
-                                                animationDelay: `${index * 2}s`,
-                                                animationDuration: `${words.length * 2}s`,
-                                            }}
-                                        >
-                                            {word}
-                                        </li>
-                                    ))}
-                                </ul></div>
-
                             </div>
                             <style>
                                 {`
@@ -105,6 +87,31 @@ function Header() {
         `}
                             </style>
                         </div>
+                        <button onClick={() => setOpensearch(!opensearch)}
+                            className="relative text-2xl rounded-full m-1text-black cursor-pointer">
+                            <i className="fa-solid fa-magnifying-glass text-15"></i>
+                           {opensearch && ( <div className="relative w-full">
+                                <input
+                                    placeholder=""
+                                    className="border border-orange-600 rounded px-4 py-1 h-8 text-black w-full"
+                                />
+                                <ul className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-6 w-40 overflow-hidden">
+                                    {words.map((word, index) => (
+                                        <li
+                                            key={index}
+                                            className="absolute left-0 animate-search-items text-gray-500"
+                                            style={{
+                                                animationDelay: `${index * 2}s`,
+                                                animationDuration: `${words.length * 2}s`,
+                                            }}
+                                        >
+                                            {word}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                            </div>)}
+                        </button>
                         <button onClick={() => setselectedlocation(!selectedlocation)} className=" m-5 cursor-pointer">
                             <option className="hover:text-blue-600">Select Location ▼ </option>
                             {selectedlocation && (<div className="

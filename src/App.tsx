@@ -12,10 +12,6 @@ import ColorSelector from "./components/data1";
 import WhatsAppChat from "./components/Chatbot";
 import Coustermercare from "./components/coustermercare";
 import ExchangeOffer from "./components/Exchangeoffer";
-import Navpage from "./components/Navpage";
-
-
-
 function App() {
   return (
     <BrowserRouter>
@@ -34,7 +30,6 @@ function App() {
       <Contact />
       <Footer />
       <WhatsAppChat/>
-
     </BrowserRouter>
   );
 }
