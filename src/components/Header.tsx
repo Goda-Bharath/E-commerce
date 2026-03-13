@@ -7,7 +7,7 @@ function Header() {
     const [opencart, setOpencart] = useState(false);
     const [closeuser, setCloseuser] = useState(false);
     const [selectedlocation, setselectedlocation] = useState(false);
-    const [opensearch,setOpensearch] = useState(false);
+    const [opensearch, setOpensearch] = useState(false);
     const words = ["MEN WEAR", "WOMEN WEAR", "KIDS WEAR", "BUEATY",];
 
     return (
@@ -90,7 +90,12 @@ function Header() {
                         <button onClick={() => setOpensearch(!opensearch)}
                             className="relative text-2xl rounded-full m-1text-black cursor-pointer">
                             <i className="fa-solid fa-magnifying-glass text-15"></i>
-                           {opensearch && ( <div className="relative w-full">
+                            {opensearch && (<div className="
+            absolute top-24 fixed right-79 
+            w-130 bg-white rounded-2xl shadow-2xl
+            transition-transform duration-300
+            origin-bottom-right
+          ">
                                 <input
                                     placeholder=""
                                     className="border border-orange-600 rounded px-4 py-1 h-8 text-black w-full"
