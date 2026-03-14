@@ -8,7 +8,30 @@ function Header() {
     const [closeuser, setCloseuser] = useState(false);
     const [selectedlocation, setselectedlocation] = useState(false);
     const [opensearch, setOpensearch] = useState(false);
-    const words = ["MEN WEAR", "WOMEN WEAR", "KIDS WEAR", "BUEATY",];
+
+    const [search, setSearch] = useState("");
+
+    const products = [
+        { id: 1, name: "Men Jeans Pants", category: "Men" },
+        { id: 2, name: "Men Short Pants", category: "Men" },
+        { id: 3, name: "Women Jeans Pants", category: "Women" },
+        { id: 4, name: "Women Short Pants", category: "Women" },
+        { id: 5, name: "Kids Cotton Shirt", category: "Kids" },
+        { id: 6, name: "Kids Shorts", category: "Kids" },
+        { id: 7, name: "Beauty Face Cream", category: "Beauty" },
+        { id: 8, name: "Beauty Skin Care", category: "Beauty" },
+    ];
+
+    const words = [
+        "Search pants...",
+        "Search jeans...",
+        "Search beauty...",
+        "Search kids clothes..."
+    ];
+
+    const filteredProducts = products.filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase())
+    );
 
     return (
         <header className="sticky relative top-0 z-50 bg-white shadow-lg after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-cyan-400/40 p-2">
@@ -87,36 +110,85 @@ function Header() {
         `}
                             </style>
                         </div>
-                        <button onClick={() => setOpensearch(!opensearch)}
-                            className="relative text-2xl rounded-full m-1text-black cursor-pointer">
-                            <i className="fa-solid fa-magnifying-glass text-15"></i>
-                            {opensearch && (<div className="
-            absolute top-24 fixed right-79 
-            w-130 bg-white rounded-2xl shadow-2xl
-            transition-transform duration-300
-            origin-bottom-right
-          ">
-                                <input
-                                    placeholder=""
-                                    className="border border-orange-600 rounded px-4 py-1 h-8 text-black w-full"
-                                />
-                                <ul className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-6 w-40 overflow-hidden">
-                                    {words.map((word, index) => (
-                                        <li
-                                            key={index}
-                                            className="absolute left-0 animate-search-items text-gray-500"
-                                            style={{
-                                                animationDelay: `${index * 2}s`,
-                                                animationDuration: `${words.length * 2}s`,
-                                            }}
-                                        >
-                                            {word}
-                                        </li>
-                                    ))}
-                                </ul>
+                        <div className="relative">
+                            <button
+                                onClick={() => setOpensearch(!opensearch)}
+                                className="text-2xl text-black cursor-pointer absolute top-4 right-70"
+                            >
+                                <i className="fa-solid fa-magnifying-glass"></i>
+                            </button>
 
-                            </div>)}
-                        </button>
+                            {opensearch && (
+                                <div
+                                    className="
+          absolute right-107 top-21
+          w-80 p-4
+          bg-white/80 backdrop-blur-lg
+          border border-orange-200
+          rounded-2xl
+          shadow-[0_20px_60px_rgba(0,0,0,0.25)]
+          transition-all duration-300
+        "
+                                >
+                                    <div className="relative">
+                                        <input
+                                            type="text"
+                                            placeholder="Search products..."
+                                            value={search}
+                                            onChange={(e) => setSearch(e.target.value)}
+                                            className="
+              w-full
+              border border-orange-400
+              rounded-lg
+              px-4 py-2
+              text-black
+              outline-none
+              focus:ring-2 focus:ring-orange-400
+            "
+                                        />
+                                        {!search && (
+                                            <ul className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-6 overflow-hidden">
+                                                {words.map((word, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="absolute left-0 animate-search-items text-gray-500"
+                                                        style={{
+                                                            animationDelay: `${index * 2}s`,
+                                                            animationDuration: `${words.length * 2}s`,
+                                                        }}
+                                                    >
+                                                        {word}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+
+                                    </div>
+                                    {search && (
+                                        <div className="mt-3 bg-white rounded-lg shadow-lg max-h-40 overflow-y-auto">
+
+                                            {filteredProducts.length > 0 ? (
+                                                filteredProducts.map((item) => (
+                                                    <div
+                                                        key={item.id}
+                                                        className="px-3 py-2 hover:bg-orange-100 cursor-pointer"
+                                                    >
+                                                        {item.name}
+                                                        <span className="text-gray-400 text-sm ml-2">
+                                                            ({item.category})
+                                                        </span>
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                <p className="p-2 text-gray-500">No products found</p>
+                                            )}
+
+                                        </div>
+                                    )}
+
+                                </div>
+                            )}
+                        </div>
                         <button onClick={() => setselectedlocation(!selectedlocation)} className=" m-5 cursor-pointer">
                             <option className="hover:text-blue-600">Select Location ▼ </option>
                             {selectedlocation && (<div className="
@@ -164,21 +236,16 @@ function Header() {
                                         onClick={() => setOpencart(false)}
                                     >
                                     </button>
-
-                                    {/* BACKDROP */}
                                     {opencart && (
                                         <div
                                             className="fixed inset-0 bg-gray-500/75 z-40"
                                             onClick={() => setOpencart(false)}
                                         />
                                     )}
-
-                                    {/* DRAWER */}
                                     <div
                                         className={`fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white shadow-xl transform transition-transform duration-300
                                         ${opencart ? "translate-x-0" : "translate-x-full"}`}
                                     >
-                                        {/* HEADER */}
                                         <div className="flex items-center justify-between p-4 border-b">
                                             <h2 className="text-lg font-semibold">Shopping Cart</h2>
                                             <button
@@ -188,8 +255,6 @@ function Header() {
                                                 ×
                                             </button>
                                         </div>
-
-                                        {/* BODY */}
                                         <div className="p-4 space-y-6 overflow-y-auto h-full">
                                             <div className="flex gap-4">
                                                 <img
@@ -306,5 +371,4 @@ function Header() {
 
     );
 }
-
 export default Header;
