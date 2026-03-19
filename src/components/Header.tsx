@@ -8,7 +8,7 @@ function Header() {
     const [closeuser, setCloseuser] = useState(false);
     const [selectedlocation, setselectedlocation] = useState(false);
     const [opensearch, setOpensearch] = useState(false);
-
+    const [index] = useState(0);
     const [search, setSearch] = useState("");
 
     const products = [
@@ -131,21 +131,22 @@ function Header() {
         "
                                 >
                                     <div className="relative">
-                                        <input
-                                            type="text"
-                                            placeholder="Search products..."
-                                            value={search}
-                                            onChange={(e) => setSearch(e.target.value)}
-                                            className="
-              w-full
-              border border-orange-400
-              rounded-lg
-              px-4 py-2
-              text-black
-              outline-none
-              focus:ring-2 focus:ring-orange-400
-            "
-                                        />
+                                        <div className="relative w-full overflow-hidden h-10">
+                                            <input
+                                                type="text"
+                                                value={search}
+                                                onChange={(e) => setSearch(e.target.value)}
+                                                className="w-full border border-orange-400 rounded-lg px-8 py-10"
+                                            />
+
+                                            {!search && (
+                                                <div className="absolute left-4 top-2 text-gray-400">
+                                                    <span key={index} className="animate__wobble animate__infinite animate__animated inline-block">
+                                                        Search for {words[index]}...
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
                                         {!search && (
                                             <ul className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-6 overflow-hidden">
                                                 {words.map((word, index) => (
