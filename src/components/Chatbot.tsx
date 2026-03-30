@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const WhatsAppChat = () => {
     const [open, setOpen] = useState(false);
     const phoneNumber = "919346352287";
+
     const openWhatsApp = () => {
         window.open(
             `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-                "Hi! How can I help you?"
+                "Hi! I need help."
             )}`,
             "_blank"
         );
@@ -16,110 +17,77 @@ const WhatsAppChat = () => {
 
     return (
         <>
+            {/* Exchange Button */}
             <div className="fixed bottom-20 right-3 z-[100] group">
-                <Link to={"/exchang-dress"}
-                    className="cursor-pointer
-      h-14 w-14
-      rounded-full
-      flex items-center justify-center
-      text-white text-xl
-      bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600
-      shadow-lg shadow-pink-400/40
-      hover:scale-110 hover:shadow-xl hover:shadow-pink-500/60
-      active:scale-95
-      transition-all duration-300 ease-in-out
-    "
+                <Link
+                    to="/exchange-dress"
+                    className="h-14 w-14 rounded-full flex items-center justify-center text-white text-xl
+                    bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600
+                    shadow-lg hover:scale-110 transition-all duration-300"
                 >
                     ♻️
                 </Link>
 
-                <Link to={"/exchang-dress"} className="
-      absolute right-16 top-15 -translate-y-1/2
-      bg-black text-white text-sm px-3 py-3
-      rounded-md opacity-0 group-hover:opacity-100
-      transition duration-300 whitespace-nowrap
-    "> Give old dress  & Save ₹500</Link>
-                <Link to={"/exchang-dress"} className="
-      absolute right-16 top-2 -translate-y-1/2
-      bg-black text-white text-sm px-3 py-3
-      rounded-md opacity-0 group-hover:opacity-100
-      transition duration-300 whitespace-nowrap
-    ">
-                    Exchange  & Get coupen code
-                </Link>
+                {/* Tooltips */}
+                <div className="absolute right-16 top-0 bg-black text-white text-sm px-3 py-2 rounded-md opacity-0 group-hover:opacity-100 transition">
+                    Give old dress & Save ₹500
+                </div>
+
+                <div className="absolute right-16 top-10 bg-black text-white text-sm px-3 py-2 rounded-md opacity-0 group-hover:opacity-100 transition">
+                    Exchange & Get coupon code
+                </div>
             </div>
 
+            {/* WhatsApp Button */}
             <button
                 onClick={() => setOpen(!open)}
-                className="fixed bottom-6 right-3 z-[100] h-12 w-12  hover:scale-110 transition-all duration-300  flex items-center justify-center active:scale-95 cursor-pointer"
+                className="fixed bottom-6 right-3 z-[100] h-12 w-12 flex items-center justify-center hover:scale-110 transition"
                 aria-label="Open WhatsApp Chat"
             >
                 <div className="bg-green-400 p-2 rounded-full animate-pulse">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="orange"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.9}
-                        stroke="currentColor"
-                        className="w-10 h-10"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8 10h8m-8 3h5m8-1c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4.2-.95L3 20l1.2-3.6A7.74 7.74 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z"
-                        />
-                    </svg>
+                    💬
                 </div>
             </button>
+
+            {/* Chat Popup */}
             {open && (
-                <div className="fixed bottom-35 right-6 w-120 bg-white rounded-2xl shadow-2xl z-[1001] border border-gray-200 animate-in slide-in-from-bottom-2 duration-300 max-h-[500px] cursor-pointer">
+                <div className="fixed bottom-24 right-4 w-80 bg-white rounded-xl shadow-xl z-[1001] border animate-in slide-in-from-bottom-2">
+                    
                     {/* Header */}
-                    <div className="p-4 border-b border-gray-200 flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm shrink-0">
+                    <div className="p-4 border-b flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center">
                             GB
                         </div>
                         <div>
-                            <p className="font-semibold text-gray-900 text-sm">Coustermer Care</p>
-                            <p className="text-xs text-green-500 font-medium">online Shopping website</p>
+                            <p className="font-semibold text-sm">Customer Care</p>
+                            <p className="text-xs text-green-500">Online Shopping</p>
                         </div>
+
                         <button
                             onClick={() => setOpen(false)}
-                            className="ml-auto p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors duration-200 flex items-center justify-center w-8 h-8"
-                            aria-label="Close chat"
+                            className="ml-auto text-gray-500 hover:text-black"
                         >
-                            ×
+                            ✕
                         </button>
                     </div>
 
                     {/* Message */}
-                    <div className="p-5 pb-2">
-                        <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-xs flex-shrink-0 mt-1">
-                                GB
-                            </div>
-                            <div className="bg-gray-100 rounded-2xl px-4 py-3 max-w-[85%]">
-                                <p className="text-sm text-gray-800 leading-relaxed">
-                                    Hii 👋<br />How can I help you?
-                                </p>
-                            </div>
+                    <div className="p-4">
+                        <div className="bg-gray-100 rounded-lg p-3 text-sm">
+                            👋 Hi! How can I help you?
                         </div>
                     </div>
 
-                    {/* Action Button */}
-                    <div className="p-4 border-t border-gray-200">
+                    {/* Action */}
+                    <div className="p-4 border-t">
                         <button
                             onClick={openWhatsApp}
-                            className="w-full bg-[#25D366] text-white py-3.5 px-4 rounded-xl font-semibold text-sm hover:bg-[#20ba56] active:scale-[0.98] transition-all duration-200 shadow-lg flex items-center justify-center gap-2"
+                            className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
                         >
-                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.472 14.382c-.297-.149..." />
-                            </svg>
-                            <span className="cursor-pointer">Chat with us</span>
+                            Chat on WhatsApp
                         </button>
-                        <p className="text-xs text-center text-gray-500 mt-3 flex items-center justify-center gap-1">
-                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921..." />
-                            </svg>
+
+                        <p className="text-xs text-center text-gray-500 mt-2">
                             Powered by WhatsApp
                         </p>
                     </div>
