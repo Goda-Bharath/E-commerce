@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 const WhatsAppChat = () => {
     const [open, setOpen] = useState(false);
+    const [opening, setOpening] = useState(false);
+
     const phoneNumber = "919346352287";
 
     const openWhatsApp = () => {
@@ -17,8 +19,16 @@ const WhatsAppChat = () => {
 
     return (
         <>
-            {/* Exchange Button */}
             <div className="fixed bottom-20 right-3 z-[100] group">
+                <button
+                    onClick={() => setOpening(!opening)}
+                    className="fixed bottom-35 right-3 z-[100] h-12 w-12 flex items-center justify-center hover:scale-110 transition"
+                    aria-label="Open WhatsApp Chat"
+                >
+                    <div className="bg-green-400 p-2 rounded-full animate-pulse">
+                        📞
+                    </div>
+                </button>
                 <Link
                     to="/exchange-dress"
                     className="h-14 w-14 rounded-full flex items-center justify-center text-white text-xl
@@ -27,8 +37,6 @@ const WhatsAppChat = () => {
                 >
                     ♻️
                 </Link>
-
-                {/* Tooltips */}
                 <div className="absolute right-16 top-0 bg-black text-white text-sm px-3 py-2 rounded-md opacity-0 group-hover:opacity-100 transition">
                     Give old dress & Save ₹500
                 </div>
@@ -37,8 +45,6 @@ const WhatsAppChat = () => {
                     Exchange & Get coupon code
                 </div>
             </div>
-
-            {/* WhatsApp Button */}
             <button
                 onClick={() => setOpen(!open)}
                 className="fixed bottom-6 right-3 z-[100] h-12 w-12 flex items-center justify-center hover:scale-110 transition"
@@ -52,7 +58,7 @@ const WhatsAppChat = () => {
             {/* Chat Popup */}
             {open && (
                 <div className="fixed bottom-24 right-4 w-80 bg-white rounded-xl shadow-xl z-[1001] border animate-in slide-in-from-bottom-2">
-                    
+
                     {/* Header */}
                     <div className="p-4 border-b flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center">

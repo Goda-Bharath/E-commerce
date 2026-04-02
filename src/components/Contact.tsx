@@ -9,10 +9,10 @@ function Footer() {
 
     emailjs
       .sendForm(
-        "service_cenjq6g",      // ✔ your service ID
-        "template_tra2de8",     // ✔ your template ID
-        form.current!,        // ✔ FORM ELEMENT
-        "P8t_wz_TASMEHDUr8"   // ✔ public key
+        "service_cenjq6g",     
+        "template_tra2de8",     
+        form.current!,        
+        "P8t_wz_TASMEHDUr8"   
       )
       .then(
         () => {
