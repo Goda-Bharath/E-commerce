@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const WhatsAppChat = () => {
     const [open, setOpen] = useState(false);
-    const [opening, setOpening] = useState(false);
 
     const phoneNumber = "919346352287";
 
@@ -16,16 +15,19 @@ const WhatsAppChat = () => {
         );
         setOpen(false);
     };
+    const callNow = () => {
+  window.location.href = `tel:+919346352287`;
+};
 
     return (
         <>
-            <div className="fixed bottom-20 right-3 z-[100] group">
+            <div className="fixed bottom-20 right-3 z-[100] group ">
                 <button
-                    onClick={() => setOpening(!opening)}
-                    className="fixed bottom-35 right-3 z-[100] h-12 w-12 flex items-center justify-center hover:scale-110 transition"
-                    aria-label="Open WhatsApp Chat"
+                    onClick={callNow}
+                    className="fixed bottom-35  right-3 z-[100] h-12 w-12 flex items-center justify-center hover:scale-110 transition"
+                    aria-label="Call Now"
                 >
-                    <div className="bg-green-400 p-2 rounded-full animate-pulse">
+                    <div className="bg-green-400 p-2 rounded-full cursor-pointer animate-pulse">
                         📞
                     </div>
                 </button>
@@ -50,14 +52,14 @@ const WhatsAppChat = () => {
                 className="fixed bottom-6 right-3 z-[100] h-12 w-12 flex items-center justify-center hover:scale-110 transition"
                 aria-label="Open WhatsApp Chat"
             >
-                <div className="bg-green-400 p-2 rounded-full animate-pulse">
+                <div className="bg-green-400 p-2 cursor-pointer rounded-full animate-pulse">
                     💬
                 </div>
             </button>
 
             {/* Chat Popup */}
             {open && (
-                <div className="fixed bottom-24 right-4 w-80 bg-white rounded-xl shadow-xl z-[1001] border animate-in slide-in-from-bottom-2">
+                <div className="fixed bottom-24 right-4 cursor-pointer w-80 bg-white rounded-xl shadow-xl z-[1001] border animate-in slide-in-from-bottom-2">
 
                     {/* Header */}
                     <div className="p-4 border-b flex items-center gap-3">
