@@ -30,8 +30,7 @@ function ExchangeOffer() {
     e.preventDefault();
     console.log(formData);
     alert("🚀 Exchange request submitted successfully!");
-  };
-
+  }
   return (
     <div className="min-h-screen flex items-center justify-center p-5 bg-gray-900">
       <div className="w-full max-w-lg backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8">
