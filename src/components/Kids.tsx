@@ -170,16 +170,11 @@ function Kids() {
   return (
     <div className="bg-white min-h-screen">
       <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 py-8 sm:py-12">
-        {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">
             Kids Shoping Products
           </h2>
-          {/* Search */}
-
         </div>
-
-        {/* Filters & Sorting */}
         <div className="flex flex-wrap gap-4 mb-6">
           <select
             className="border rounded px-4 py-2"
