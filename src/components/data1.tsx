@@ -11,32 +11,32 @@ interface Product {
 }
 
 const product: Product = {
-  name: "Men Stripes Regular Fit Shirt",
+  name: "Women's Stripes Regular Fit Shirt",
   colors: [
     {
       name: "White",
       image:
-        "https://assets.ajio.com/medias/sys_master/root1/20250808/exCj/6895dade3d468c61ab592144/-473Wx593H-702089591-blue-MODEL.jpg",
+        "https://assets.ajio.com/medias/sys_master/root/20230624/white-shirt.jpg",
     },
     {
       name: "Black",
       image:
-        "https://assets.ajio.com/medias/sys_master/root1/20250808/exCj/6895dade3d468c61ab592144/-473Wx593H-702089591-black-MODEL.jpg",
+        "https://assets.ajio.com/medias/sys_master/root/20230624/black-shirt.jpg",
     },
     {
       name: "Maroon",
       image:
-        "https://assets.ajio.com/medias/sys_master/root1/20250808/exCj/6895dade3d468c61ab592144/-473Wx593H-702089591-maroon-MODEL.jpg",
+        "https://assets.ajio.com/medias/sys_master/root/20230624/maroon-shirt.jpg",
     },
     {
       name: "Navy Blue",
       image:
-        "https://assets.ajio.com/medias/sys_master/root1/20250808/exCj/6895dade3d468c61ab592144/-473Wx593H-702089591-navy-MODEL.jpg",
+        "https://assets.ajio.com/medias/sys_master/root/20230624/navy-shirt.jpg",
     },
     {
       name: "Brown",
       image:
-        "https://assets.ajio.com/medias/sys_master/root1/20250808/exCj/6895dade3d468c61ab592144/-473Wx593H-702089591-brown-MODEL.jpg",
+        "https://assets.ajio.com/medias/sys_master/root/20230624/brown-shirt.jpg",
     },
   ],
 };
@@ -47,16 +47,21 @@ const ColorSelector: React.FC = () => {
   );
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      {/* Product Image */}
+    <div className="flex flex-col items-center gap-4 p-4">
       <img
         src={selectedColor.image}
         alt={selectedColor.name}
+        onError={(e) =>
+          (e.currentTarget.src =
+            "https://via.placeholder.com/250?text=Image+Not+Available")
+        }
         className="w-64 h-64 object-cover rounded-xl shadow-md"
       />
 
-      {/* Selected Color Name */}
-      <p className="text-lg font-medium text-gray-800">{selectedColor.name}</p>
+      {/* Selected Color */}
+      <p className="text-lg font-medium text-gray-800">
+        {selectedColor.name}
+      </p>
 
       {/* Color Options */}
       <div className="flex gap-3">
@@ -64,7 +69,8 @@ const ColorSelector: React.FC = () => {
           <button
             key={color.name}
             onClick={() => setSelectedColor(color)}
-            className={`relative w-10 h-10 rounded-full border-2 overflow-hidden transition-all ${
+            aria-label={color.name}
+            className={`w-10 h-10 rounded-full border-2 overflow-hidden transition ${
               selectedColor.name === color.name
                 ? "border-cyan-500 scale-110"
                 : "border-gray-300 hover:border-cyan-400"
@@ -73,7 +79,7 @@ const ColorSelector: React.FC = () => {
             <img
               src={color.image}
               alt={color.name}
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover"
             />
           </button>
         ))}
