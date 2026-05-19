@@ -5,73 +5,104 @@ type Product = {
   id: number;
   name: string;
   description: string;
-  image: string;
+  imageSrc: string;
+  imageAlt: string;
   price: number;
-  discountPrice: number;
   color: string;
   category: string;
 };
 
 export const products: Product[] = [
   {
-    id: 1,
-    name: "U.S. Polo Assn.",
-    description: "Men Solid Casual Shirt",
-    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf",
-    price: 1499,
-    discountPrice: 999,
-    color: "Blue",
-    category: "Casual",
+    id: 'm1',
+    name: 'EYEBOGLER',
+    href: 'Men Stripes Regular Fit Shirt',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root1/20250808/exCj/6895dade3d468c61ab592144/-473Wx593H-702089591-blue-MODEL.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: 349,
+    discountPrice: 314,
+    color: 'Maron',
+    category: 'men',
   },
   {
-    id: 2,
-    name: "Levi's",
-    description: "Slim Fit Denim Shirt",
-    image: "https://images.unsplash.com/photo-1583001809873-a128495da465",
-    price: 1999,
-    discountPrice: 1299,
-    color: "Dark Blue",
-    category: "Denim",
+    id: 'm2',
+    name: 'SHEIN',
+    href: 'Shein Cuban Textured Relaxed Fit Shirt',
+    imageSrc: 'https://assets.sheinindia.in/medias/shein_sys_master/root/20250312/nKZG/67d1721f59f8353980323e28/shein_beige_shein_cuban_collar_short_sleeves_textured_shirt.jpg',
+    imageAlt: "Front of men's Basic Tee in white.",
+    price: 449,
+    discountPrice: 414,
+    color: 'Aspen White',
   },
   {
-    id: 3,
-    name: "H&M",
-    description: "Regular Fit Cotton Shirt",
-    image: "https://images.unsplash.com/photo-1520975922284-9e0b9c8f7b95",
-    price: 999,
-    discountPrice: 699,
-    color: "White",
-    category: "Formal",
+    id: 'm3',
+    name: 'NETPLAY',
+    href: 'Front of mens Basic Tee in dark gray',
+    imageSrc: 'https://assets.sheinindia.in/medias/shein_sys_master/root/20250510/r5S9/681f223a7a6cd4182f250724/-473Wx593H-443327677-black-MODEL.jpg',
+    imageAlt: "Front of men's Basic Tee in dark gray.",
+    price: 349,
+    discountPrice: 314,
+    color: 'Black',
   },
   {
     id: 4,
-    name: "Zara",
-    description: "Printed Casual Shirt",
-    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990",
-    price: 1799,
-    discountPrice: 1199,
-    color: "Black",
-    category: "Printed",
+    name: 'BOMBAY BEGUM',
+    href: 'Men Pop Print Medium  Corn Full Shirt',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20230623/XI65/649541b6d55b7d0c63b6e691/-473Wx593H-464879851-blue-MODEL.jpg',
+    imageAlt: "Front of men's forming an isometric cube.",
+    price: 649,
+    discountPrice: 614,
+    color: 'Iso Dots',
   },
   {
     id: 5,
-    name: "Roadster",
-    description: "Checked Casual Shirt",
-    image: "https://images.unsplash.com/photo-1593032465175-481ac7f401f0",
-    price: 1299,
-    discountPrice: 899,
-    color: "Red",
-    category: "Checked",
+    name: 'JOHN PLAYERS JEANS',
+    href: 'Men Checked Slim Fit Shacket',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20240719/edRZ/669a5fb31d763220fa087966/-473Wx593H-443037161-black-MODEL.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: 479,
+    discountPrice: 444,
+    color: 'Pure Black',
   },
   {
     id: 6,
-    name: "Allen Solly",
-    description: "Formal Slim Fit Shirt",
-    image: "https://images.unsplash.com/photo-1589310243389-96a5483213a8",
-    price: 1899,
-    discountPrice: 1399,
-    color: "Light Blue",
-    category: "Formal",
+    name: 'U.S. POLO ASSN.',
+    href: 'Shein Cuban Collar Overlay  Fit Shirt',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20230512/nLEs/645e55f842f9e729d77cb386/-473Wx593H-469477464-white-MODEL.jpg',
+    imageAlt: "Front of men's Basic Tee in white.",
+    price: 449,
+    discountPrice: 414,
+    color: 'pure White',
+  },
+  {
+    id: 7,
+    name: 'THE INDIAN GARAGE CO',
+    href: 'Striped Shirt with Patch Pocket with printed fromal checks ',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20230215/H62m/63ecef58aeb26924e373ad94/-473Wx593H-469448036-blue-MODEL.jpg',
+    imageAlt: "Front of men's Basic Tee in dark gray.",
+    price: 849,
+    discountPrice: 814,
+    color: 'culumba',
+  },
+  {
+    id: 8,
+    name: 'ALPHA TRIBE',
+    href: 'Men Pop Print Medium  Corn Full Shirt with printed cotton',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20250704/T0uN/6867b69bb13fc54eddf7477d/-473Wx593H-701870527-mustard-MODEL3.jpg',
+    imageAlt: "Men Regular Fit Shirt with Full Sleeves",
+    price: 749,
+    discountPrice: 714,
+    color: 'ISO Yellow',
+  },
+  {
+    id: 9,
+    name: 'CAMPUS SUTRA.',
+    href: 'Men Floral Print Regular Fit Shirt with Spread Collar',
+    imageSrc: 'https://assets.ajio.com/medias/sys_master/root/20240409/NYAJ/6614441116fd2c6e6aa5b65f/-473Wx593H-467236683-multi-MODEL.jpg',
+    imageAlt: "Front of men's Basic Tee in white.",
+    price: 1449,
+    discountPrice: 1374,
+    color: 'dev colors',
   },
 ];
 
@@ -127,8 +158,8 @@ function ProductListed() {
           >
             <Link to={`/product-details/${product.id}`}>
               <img
-                src={product.image}
-                alt={product.name}
+                src={product.imageSrc}
+                alt={product.imageAlt}
                 className="w-full h-64 object-cover rounded-md"
               />
 
