@@ -1,6 +1,6 @@
 import { Select } from "@headlessui/react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -10,6 +10,7 @@ function Header() {
     const [opensearch, setOpensearch] = useState(false);
     const [index] = useState(0);
     const [search, setSearch] = useState("");
+    const navigate = useNavigate();
 
     const products = [
         { id: 1, name: "Men Jeans Pants", category: "Men" },
@@ -309,7 +310,6 @@ function Header() {
                                         ×
                                     </button>
                                 </div>
-
                                 <div className="p-4 space-y-4">
                                     <input
                                         type="text"
@@ -333,7 +333,10 @@ function Header() {
                                         <div className="flex-1 h-px bg-gray-200"></div>
                                     </div>
 
-                                    <button className="w-full border border-orange-500  cursor-pointer text-orange-500 py-2 rounded-lg hover:bg-orange-50">
+                                    <button
+                                        onClick={() => navigate("/otp-login")}
+                                        className="w-full border border-orange-500 cursor-pointer text-orange-500 py-2 rounded-lg hover:bg-orange-50"
+                                    >
                                         Login with OTP
                                     </button>
 
