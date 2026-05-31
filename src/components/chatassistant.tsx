@@ -83,12 +83,12 @@ function ShoppingChatbot() {
         <>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-5 right-5 bg-green-500 text-white w-14 h-14 rounded-full shadow-lg text-2xl hover:bg-green-600"
+                className="fixed bottom-48 right-4 bg-green-500 text-white w-10 h-10 rounded-full shadow-lg text-2xl hover:bg-green-600"
             >
                 <i class="fa-brands fa-bots"></i>
             </button>
             {isOpen && (
-                <div className="fixed bottom-24 right-5 w-80 bg-white rounded-lg shadow-2xl border overflow-hidden">
+                <div className="fixed bottom-24 right-5 w-60 bg-white rounded-lg shadow-2xl border overflow-hidden">
                     <div className="bg-green-500 text-white p-4 font-bold">
                         Shopping Assistant
                     </div>
