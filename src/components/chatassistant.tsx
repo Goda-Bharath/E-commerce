@@ -28,7 +28,7 @@ function ShoppingChatbot() {
             category: "women",
             price: 1299,
             image:
-                "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446",
+                "https://assets-jiocdn.ajio.com/medias/sys_master/root/20230706/Rtaj/64a6e596a9b42d15c942138a/-473Wx593H-441200713-red-MODEL.jpg",
         },
         {
             id: 4,
@@ -36,7 +36,7 @@ function ShoppingChatbot() {
             category: "shoes",
             price: 1999,
             image:
-                "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+                "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250701/ZDQz/6863c6b0b13fc54edde840ca/-473Wx593H-701850277-white-MODEL.jpg",
         },
     ];
 
