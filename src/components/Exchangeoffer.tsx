@@ -12,7 +12,7 @@ function ExchangeOffer() {
     address: "",
     date: "",
     phone: "",
-    quantity: 0,
+    quantity: 1,
   });
 
   const handleChange = (
@@ -28,9 +28,19 @@ function ExchangeOffer() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
+
+    console.log("Exchange Request:", formData);
+
     alert("🚀 Exchange request submitted successfully!");
-  }
+
+    setFormData({
+      address: "",
+      date: "",
+      phone: "",
+      quantity: 1,
+    });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center p-5 bg-gray-900">
       <div className="w-full max-w-lg backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8">
@@ -40,12 +50,11 @@ function ExchangeOffer() {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-
-          {/* Address */}
           <div>
             <label className="block text-sm text-white mb-2">
               🚚 Pickup Address
             </label>
+
             <textarea
               name="address"
               rows={3}
@@ -56,12 +65,11 @@ function ExchangeOffer() {
               className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400"
             />
           </div>
-
-          {/* Quantity */}
           <div>
             <label className="block text-sm text-white mb-2">
               👕 Dress Quantity
             </label>
+
             <input
               type="number"
               name="quantity"
@@ -72,12 +80,11 @@ function ExchangeOffer() {
               className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white"
             />
           </div>
-
-          {/* Date */}
           <div>
             <label className="block text-sm text-white mb-2">
               📅 Pickup Date
             </label>
+
             <input
               type="date"
               name="date"
@@ -89,11 +96,11 @@ function ExchangeOffer() {
             />
           </div>
 
-          {/* Phone */}
           <div>
             <label className="block text-sm text-white mb-2">
               📱 Contact Number
             </label>
+
             <input
               type="tel"
               name="phone"
@@ -102,14 +109,14 @@ function ExchangeOffer() {
               onChange={handleChange}
               required
               pattern="[0-9]{10}"
+              maxLength={10}
               className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400"
             />
           </div>
 
-          {/* Submit */}
-          <button
+          <button onClick={handleChange}
             type="submit"
-            className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-3 rounded-lg"
+            className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-3 rounded-lg transition"
           >
             Submit Exchange Request
           </button>
