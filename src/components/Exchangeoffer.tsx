@@ -1,4 +1,5 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 
 interface FormData {
   address: string;
@@ -113,8 +114,7 @@ function ExchangeOffer() {
               className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400"
             />
           </div>
-
-          <button onClick={handleChange}
+          <button
             type="submit"
             className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-3 rounded-lg transition"
           >

@@ -1,8 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Allproducts, { products, } from "./Allproducts";
-import Carousel from "./coursel";
-
+import { products } from "./Allproducts";
 
 function ProductDetails() {
   const location = useLocation();

@@ -88,7 +88,7 @@ function ShoppingChatbot() {
                 onClick={() => setIsOpen(true)}
                 className="fixed bottom-48 right-2 bg-green-500 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-xl hover:bg-green-600"
             >
-                <i class="fa-brands fa-bots"></i>
+                <i className="fa-brands fa-bots"></i>
             </button>
             {isOpen && (
                 <div className="fixed bottom-24 right-5 w-80 bg-white rounded-xl shadow-2xl border overflow-hidden">
@@ -96,7 +96,7 @@ function ShoppingChatbot() {
                     {/* Header */}
                     <div className="bg-green-500 text-white p-4 flex items-center gap-3">
                         <button onClick={() => setIsOpen(false)}>
-                            <i class="fa-solid fa-circle-xmark"></i>
+                            <i className="fa-solid fa-circle-xmark"></i>
                         </button>
 
                         <h2 className="font-bold">

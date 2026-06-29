@@ -404,14 +404,14 @@ export const products = [
     category: "Men Unstitched Suit Piece",
   },
 ]
-function ProductList({ product }) {
+function ProductList({ }) {
   const [quarter, setQuarter] = useState("all");
   const [sortOrder, setSortOrder] = useState("default");
   const [, setProducts] = useState<any[]>([]);
   const filteredProducts =
     quarter === "all"
       ? products
-      : products.filter((products) => products.quarter === quarter);
+      : products.filter((products) => products.category === quarter);
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOrder === "low-high") {
       return Number(a.price) - Number(b.price);
@@ -484,7 +484,7 @@ function ProductList({ product }) {
                     ₹{product.price}
                   </p>
                   <p className="text-sm text-gray-500 line-through">
-                    ₹{product.discount}
+                    ₹{product.Discount}
                   </p>
                 </div>
               </div>

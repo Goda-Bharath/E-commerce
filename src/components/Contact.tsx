@@ -17,7 +17,7 @@ function Footer() {
       .then(
         () => {
           alert("Message Sent Successfully!");
-          form.current?.reset();
+          
         },
         (error) => {
           alert("Error sending message: " + error.text);
@@ -194,7 +194,7 @@ function Footer() {
                 <div className="relative mt-2">
                   <textarea
                     name="message"
-                    rows="6"
+                    rows={6}
                     placeholder="Write your message..."
                     className="w-full border border-white/20 rounded-2xl p-4 pr-10 bg-white/10 backdrop-blur-sm outline-none placeholder-gray-400"
                     required

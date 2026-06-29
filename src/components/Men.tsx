@@ -2,14 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 type Product = {
-  id: number;
+  id: string | number;
   name: string;
-  description: string;
+  href: string;
   imageSrc: string;
   imageAlt: string;
   price: number;
+  discountPrice: number;
   color: string;
-  category: string;
+  category?: string;
+  description?: string;
 };
 
 export const products: Product[] = [
@@ -176,7 +178,7 @@ function ProductListed() {
 
               <div className="flex justify-between mt-2">
                 <span className="font-bold">
-                  ₹{product.discountPrice}
+                  ₹{product.description}
                 </span>
                 <span className="line-through text-gray-400">
                   ₹{product.price}

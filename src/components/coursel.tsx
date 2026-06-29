@@ -16,15 +16,6 @@ const Carousel: React.FC = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
 
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrent(index);
-  };
-
-
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
