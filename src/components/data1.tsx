@@ -12,6 +12,7 @@ interface Product {
 
 const product: Product = {
   name: "Women's Stripes Regular Fit Shirt",
+
   colors: [
     {
       name: "White",
@@ -46,21 +47,31 @@ const ColorSelector: React.FC = () => {
     product.colors[0]
   );
 
+  const handleImageError = (
+    event: React.SyntheticEvent<HTMLImageElement>
+  ) => {
+    event.currentTarget.src =
+      "https://via.placeholder.com/250?text=Image+Not+Available";
+  };
+
   return (
-    <div className="flex flex-col items-center gap-4 p-4">
+    <div className="flex flex-col items-center gap-5 p-6">
+      {/* Product Name */}
+      <h2 className="text-2xl font-bold text-gray-800">
+        {product.name}
+      </h2>
+
+      {/* Selected Product Image */}
       <img
         src={selectedColor.image}
         alt={selectedColor.name}
-        onError={(e) =>
-          (e.currentTarget.src =
-            "https://via.placeholder.com/250?text=Image+Not+Available")
-        }
-        className="w-64 h-64 object-cover rounded-xl shadow-md"
+        onError={handleImageError}
+        className="h-64 w-64 rounded-xl object-cover shadow-md"
       />
 
       {/* Selected Color */}
       <p className="text-lg font-medium text-gray-800">
-        {selectedColor.name}
+        Selected Color: {selectedColor.name}
       </p>
 
       {/* Color Options */}
@@ -68,18 +79,20 @@ const ColorSelector: React.FC = () => {
         {product.colors.map((color) => (
           <button
             key={color.name}
+            type="button"
             onClick={() => setSelectedColor(color)}
-            aria-label={color.name}
-            className={`w-10 h-10 rounded-full border-2 overflow-hidden transition ${
+            aria-label={`Select ${color.name}`}
+            className={`h-10 w-10 overflow-hidden rounded-full border-2 transition ${
               selectedColor.name === color.name
-                ? "border-cyan-500 scale-110"
+                ? "scale-110 border-cyan-500"
                 : "border-gray-300 hover:border-cyan-400"
             }`}
           >
             <img
               src={color.image}
               alt={color.name}
-              className="w-full h-full object-cover"
+              onError={handleImageError}
+              className="h-full w-full object-cover"
             />
           </button>
         ))}
