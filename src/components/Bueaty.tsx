@@ -96,92 +96,114 @@ function Bueaty() {
 
   ]
   return (
-    <div className="bg-white min-h-screen">
-      <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 py-8 sm:py-12">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-            Bueaty Shoping Products
-          </h2>
-          {/* Search */}
-        
-        </div>
+    <div className="min-h-screen bg-white">
+  <div className="mx-auto max-w-7xl px-3 py-8 sm:px-4 sm:py-12 md:px-6">
 
-        {/* Filters & Sorting */}
-        <div className="flex flex-wrap gap-4 mb-6">
-          <select
-            className="border rounded px-4 py-2"
+    <div className="mb-8 flex flex-col items-center justify-between gap-5 md:flex-row">
+      <div>
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Beauty Shopping Products
+        </h2>
+        <p className="mt-2 text-sm text-gray-500">
+          Discover products for your beauty and lifestyle needs.
+        </p>
+      </div>
 
-          >
-            <option value="All">All Categories</option>
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Kids">Kids</option>
-            <option value="Beauty">Beauty</option>
-            <option value="Accessories">Accessories</option>
-          </select>
-
-          <select
-            className="border rounded px-4 py-2"
-
-          >
-            <option value="default">Sort by</option>
-            <option value="low-high">Price: Low to High</option>
-            <option value="high-low">Price: High to Low</option>
-          </select>
-        </div>
-
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {Bueatyitems.map((product) => (
-            <div
-              key={product.id}
-              className="group relative border rounded-xl shadow-md hover:shadow-lg transition p-4"
-            >
-              <Link
-                to={`/product-details?id=${product.id}`}
-                state={{ product }}
-                className="block"
-              >
-                {/* Product Image */}
-                <img
-                  alt={product.imageAlt}
-                  src={product.imageSrc}
-                  className="aspect-square w-full rounded-md object-cover group-hover:opacity-90 lg:h-64"
-                />
-
-                {/* Info */}
-                <div className="mt-4 flex justify-between">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {product.name}
-                    </h3>
-                    <p className="text-sm text-gray-500">{product.href}</p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      {product.color} | {product.category}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-lg font-bold text-gray-900">₹{product.price}</p>
-                    <p className="text-sm text-gray-500 line-through">
-                      ₹{product.Discount}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Add to Bag Button */}
-              <button
-                onClick={() => console.log("Added to Bag:", product.name)}
-                className="mt-4 w-full bg-yellow-400 transition-all duration-300 animate-pulse rounded hover:bg-yellow-500 rounded-lg py-2 font-medium"
-              >
-                Add to Bag
-              </button>
-            </div>
-          ))}
-        </div>
+      <div className="w-full md:w-80">
+        <input
+          type="text"
+          placeholder="Search products..."
+          className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-800 outline-none transition duration-300 placeholder:text-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+        />
       </div>
     </div>
+
+    <div className="mb-8 flex flex-wrap items-center gap-4">
+      <select
+        className="rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 outline-none transition duration-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+      >
+        <option value="All">All Categories</option>
+        <option value="Men">Men</option>
+        <option value="Women">Women</option>
+        <option value="Kids">Kids</option>
+        <option value="Beauty">Beauty</option>
+        <option value="Accessories">Accessories</option>
+      </select>
+
+      <select
+        className="rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 outline-none transition duration-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+      >
+        <option value="default">Sort by</option>
+        <option value="low-high">Price: Low to High</option>
+        <option value="high-low">Price: High to Low</option>
+      </select>
+    </div>
+
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {Bueatyitems.map((product) => (
+        <div
+          key={product.id}
+          className="group overflow-hidden rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+        >
+          <Link
+            to={`/product-details?id=${product.id}`}
+            state={{ product }}
+            className="block"
+          >
+            <div className="overflow-hidden rounded-xl bg-gray-100">
+              <img
+                src={product.imageSrc}
+                alt={product.imageAlt || product.name}
+                loading="lazy"
+                className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <div className="mt-5">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0">
+                  <h3 className="truncate text-lg font-semibold text-gray-900">
+                    {product.name}
+                  </h3>
+
+                  <p className="mt-1 text-sm text-gray-500">
+                    {product.color}
+                  </p>
+
+                  <p className="mt-2 inline-block rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600">
+                    {product.category}
+                  </p>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <p className="text-xl font-bold text-gray-900">
+                    ₹{product.price}
+                  </p>
+
+                  <p className="mt-1 text-sm text-gray-400 line-through">
+                    ₹{product.Discount}
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-3 truncate text-sm text-gray-500">
+                {product.href}
+              </p>
+            </div>
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => console.log("Added to Bag:", product.name)}
+            className="mt-5 w-full rounded-xl bg-yellow-400 py-3 font-semibold text-gray-900 shadow-sm transition-all duration-300 hover:bg-yellow-500 hover:shadow-md active:scale-[0.98]"
+          >
+            Add to Bag
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
   )
 }
 export default Bueaty;

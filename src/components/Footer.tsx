@@ -123,7 +123,6 @@ function Footer() {
             >
               Terms
             </a>
-
           </div>
         </div>
       </div>
