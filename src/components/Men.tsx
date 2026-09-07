@@ -124,75 +124,90 @@ function ProductListed() {
   });
 
   return (
+    
     <div className="p-6">
-      {/* Filters */}
-      <div className="flex flex-wrap gap-4 mb-6">
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="border px-4 py-2 rounded-md"
-        >
-          <option value="all">All Categories</option>
-          <option value="Casual">Casual</option>
-          <option value="Formal">Formal</option>
-          <option value="Denim">Denim</option>
-          <option value="Printed">Printed</option>
-          <option value="Checked">Checked</option>
-        </select>
+  <div className="flex flex-wrap gap-4 mb-8">
+    <select
+      value={category}
+      onChange={(e) => setCategory(e.target.value)}
+      className="border border-gray-300 px-4 py-2 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+    >
+      <option value="all">All Categories</option>
+      <option value="Casual">Casual</option>
+      <option value="Formal">Formal</option>
+      <option value="Denim">Denim</option>
+      <option value="Printed">Printed</option>
+      <option value="Checked">Checked</option>
+    </select>
 
-        <select
-          value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value)}
-          className="border px-4 py-2 rounded-md"
-        >
-          <option value="default">Sort by</option>
-          <option value="low-high">Price: Low to High</option>
-          <option value="high-low">Price: High to Low</option>
-        </select>
-      </div>
+    <select
+      value={sortOrder}
+      onChange={(e) => setSortOrder(e.target.value)}
+      className="border border-gray-300 px-4 py-2 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+    >
+      <option value="default">Sort by</option>
+      <option value="low-high">Price: Low to High</option>
+      <option value="high-low">Price: High to Low</option>
+    </select>
+  </div>
 
-      {/* Products */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {sortedProducts.map((product) => (
-          <div
-            key={product.id}
-            className="border rounded-xl p-4 shadow hover:shadow-lg transition"
-          >
-            <Link to={`/product-details/${product.id}`}>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    {sortedProducts.length > 0 ? (
+      sortedProducts.map((product) => (
+        <div
+          key={product.id}
+          className="group border border-gray-200 rounded-2xl p-4 bg-white shadow-sm hover:shadow-xl transition-all duration-300"
+        >
+          <Link to={`/product-details/${product.id}`}>
+            <div className="overflow-hidden rounded-xl">
               <img
                 src={product.imageSrc}
-                alt={product.imageAlt}
-                className="w-full h-64 object-cover rounded-md"
+                alt={product.imageAlt || product.name}
+                loading="lazy"
+                className="w-full h-64 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
               />
+            </div>
 
-              <h3 className="mt-3 text-lg font-semibold">
-                {product.name}
-              </h3>
-              <p className="text-sm text-gray-500">
-                {product.description}
-              </p>
+            <h3 className="mt-4 text-lg font-semibold text-gray-900">
+              {product.name}
+            </h3>
 
-              <p className="text-sm text-gray-500">
-                {product.color} | {product.category}
-              </p>
+            <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+              {product.description}
+            </p>
 
-              <div className="flex justify-between mt-2">
-                <span className="font-bold">
-                  ₹{product.description}
+            <p className="mt-2 text-sm text-gray-500">
+              {product.color} | {product.category}
+            </p>
+
+            <div className="flex items-center justify-between mt-4">
+              <span className="text-lg font-bold text-gray-900">
+                ₹{product.price}
+              </span>
+
+              {product.originalPrice && (
+                <span className="text-sm text-gray-400 line-through">
+                  ₹{product.originalPrice}
                 </span>
-                <span className="line-through text-gray-400">
-                  ₹{product.price}
-                </span>
-              </div>
-            </Link>
+              )}
+            </div>
+          </Link>
 
-            <button className="mt-3 w-full bg-yellow-400 py-2 rounded">
-              Add to Bag
-            </button>
-          </div>
-        ))}
+          <button
+            type="button"
+            className="mt-4 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2.5 rounded-xl transition-all duration-300"
+          >
+            Add to Bag
+          </button>
+        </div>
+      ))
+    ) : (
+      <div className="col-span-full text-center py-16">
+        <p className="text-gray-500 text-lg">No products found.</p>
       </div>
-    </div>
+    )}
+  </div>
+</div>
   );
 }
 
